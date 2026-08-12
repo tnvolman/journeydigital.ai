@@ -43,13 +43,13 @@ The “Request a free consultation” form uses a **Next.js Server Action** (`sr
 Behavior:
 
 1. Validates name, church, email (phone optional).
-2. **Always persists** the submission (JSONL under `.data/consultations/` locally; logs if the filesystem is read-only, e.g. Vercel).
+2. **Always persists** the submission (JSONL under `.data/consultations/` locally; logs if the filesystem is read-only or ephemeral).
 3. If `RESEND_API_KEY` and `CONTACT_TO_EMAIL` are set, emails via [Resend](https://resend.com).
 4. If email env is missing, the visitor still gets a warm success message; server logs note that email was not configured.
 
 ### Environment variables
 
-See `.env.example`:
+See `.env.example`. The same variables apply in local `.env.local` and on **Railway** (production):
 
 | Variable | Required to email | Notes |
 | --- | --- | --- |
@@ -59,14 +59,20 @@ See `.env.example`:
 
 **Mail note:** Zoho on `journeydigital.ai` is the planned long-term mail path. Contact address TBD with Michael. Until then, use Resend + env vars only — no hardcoded recipient addresses in source.
 
-## Deploy to Vercel
+## Production deploy (Railway + Cloudflare)
 
-1. Import this GitHub repo into Vercel.  
-2. Framework preset: Next.js (defaults are fine).  
-3. Set `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, and optionally `CONTACT_FROM_EMAIL` in Project → Settings → Environment Variables.  
-4. Deploy. Point the production domain when ready (today’s live site may still be on Railway/Cloudflare until cutover).
+**Current production host is Railway.** The live site is https://journeydigital.ai with DNS on Cloudflare. Keep production on Railway unless Michael explicitly asks to cut over elsewhere.
 
-On Vercel, JSONL file persistence may not survive across instances — submissions are still accepted and logged; configure Resend so leads land in email.
+1. Connect this GitHub repo to the existing Railway project (or redeploy from the linked service).  
+2. Set `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, and optionally `CONTACT_FROM_EMAIL` as Railway service variables (same names as `.env.example`).  
+3. Build/start with the usual Next.js scripts (`npm run build` / `npm start`); Railway’s Node defaults are fine.  
+4. Keep the custom domain on Cloudflare pointed at Railway’s target (CNAME/proxy as already configured for `journeydigital.ai`).
+
+JSONL file persistence may not survive across ephemeral containers — submissions are still accepted and logged; configure Resend so leads land in email.
+
+### Optional: Vercel
+
+Vercel is an **optional alternate** deploy path, not the primary recommendation. Do not push a Vercel cutover unless Michael asks. If you use it for a preview or experiment: import the repo, set the same Resend/consultation env vars, and leave production DNS on Railway/Cloudflare.
 
 ## Church kit
 

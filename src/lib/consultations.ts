@@ -19,7 +19,7 @@ function dataDir() {
   return path.join(process.cwd(), ".data", "consultations");
 }
 
-/** Persist a submission as JSONL (local/dev). Falls back to console log on Vercel/read-only FS. */
+/** Persist a submission as JSONL (local/dev). Falls back to console log on read-only/ephemeral FS. */
 export async function persistConsultation(
   input: ConsultationInput,
 ): Promise<{ id: string; stored: "file" | "log" }> {

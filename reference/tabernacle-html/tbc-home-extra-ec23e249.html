@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabernacle Baptist Church | Wilson, NC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --forest:  #1a2e1e;
+      --forest2: #243b29;
+      --copper:  #b87333;
+      --copper-lt: #d4924e;
+      --ivory:   #f5f0e8;
+      --ivory2:  #ede7d9;
+      --white:   #ffffff;
+      --ink:     #1a1a1a;
+      --muted:   #6b6b5a;
+      --border:  #ddd8cc;
+    }
+    html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;background:var(--ivory);color:var(--ink);overflow-x:hidden;}
+
+    /* NAV */
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:100;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:20px 56px;
+      transition:all 0.3s;
+    }
+    nav.scrolled{
+      background:var(--forest);
+      padding:14px 56px;
+      box-shadow:0 2px 20px rgba(0,0,0,0.2);
+    }
+    .nav-logo img{height:44px;}
+    .nav-links{display:flex;gap:32px;align-items:center;}
+    .nav-links a{
+      font-size:0.8rem;font-weight:500;
+      letter-spacing:0.08em;text-transform:uppercase;
+      color:rgba(255,255,255,0.75);text-decoration:none;
+      transition:color 0.2s;
+    }
+    .nav-links a:hover{color:var(--white);}
+    .nav-cta{
+      background:var(--copper)!important;
+      color:var(--white)!important;
+      padding:10px 24px;border-radius:1px;
+      font-weight:600!important;
+      transition:background 0.2s!important;
+    }
+    .nav-cta:hover{background:var(--copper-lt)!important;}
+
+    /* HERO — split layout */
+    .hero{
+      height:100vh;min-height:700px;
+      display:grid;grid-template-columns:1fr 1fr;
+      position:relative;overflow:hidden;
+    }
+    .hero-left{
+      background:var(--forest);
+      display:flex;flex-direction:column;
+      justify-content:flex-end;
+      padding:80px 56px;
+      position:relative;z-index:2;
+    }
+    .hero-left::after{
+      content:'';
+      position:absolute;top:0;right:-60px;bottom:0;width:120px;
+      background:var(--forest);
+      transform:skewX(-3deg);
+      z-index:1;
+    }
+    .hero-right{
+      position:relative;overflow:hidden;
+    }
+    .hero-right img{
+      width:100%;height:100%;object-fit:cover;object-position:center;
+    }
+    .hero-right::before{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(to right, var(--forest) 0%, transparent 30%);
+      z-index:1;
+    }
+    .hero-tag{
+      display:inline-flex;align-items:center;gap:10px;
+      font-size:0.65rem;font-weight:600;letter-spacing:0.22em;
+      text-transform:uppercase;color:var(--copper);
+      margin-bottom:28px;
+      position:relative;z-index:2;
+    }
+    .hero-tag::before{content:'';display:block;width:28px;height:1px;background:var(--copper);}
+    .hero h1{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(3rem,5.5vw,5.5rem);
+      font-weight:700;line-height:1.0;
+      color:var(--white);
+      margin-bottom:24px;
+      position:relative;z-index:2;
+    }
+    .hero h1 em{font-style:italic;color:var(--copper);}
+    .hero-mission{
+      font-size:1rem;color:rgba(255,255,255,0.55);
+      font-weight:300;line-height:1.8;
+      max-width:420px;margin-bottom:40px;
+      position:relative;z-index:2;
+      border-left:2px solid var(--copper);
+      padding-left:16px;
+    }
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap;position:relative;z-index:2;}
+    .btn-copper{
+      background:var(--copper);color:var(--white);
+      padding:14px 32px;font-size:0.78rem;font-weight:600;
+      letter-spacing:0.1em;text-transform:uppercase;
+      text-decoration:none;border-radius:1px;
+      transition:background 0.2s;display:inline-block;
+    }
+    .btn-copper:hover{background:var(--copper-lt);}
+    .btn-ghost-light{
+      background:transparent;color:rgba(255,255,255,0.7);
+      padding:13px 32px;font-size:0.78rem;font-weight:600;
+      letter-spacing:0.1em;text-transform:uppercase;
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,0.25);border-radius:1px;
+      transition:all 0.2s;display:inline-block;
+    }
+    .btn-ghost-light:hover{border-color:rgba(255,255,255,0.6);color:var(--white);}
+
+    /* TIMES — editorial horizontal band */
+    .times-band{
+      background:var(--ivory2);
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+    }
+    .times-inner{
+      max-width:1200px;margin:0 auto;
+      display:flex;align-items:stretch;
+    }
+    .times-label-cell{
+      padding:28px 40px 28px 24px;
+      border-right:1px solid var(--border);
+      display:flex;align-items:center;
+      white-space:nowrap;
+      font-size:0.62rem;letter-spacing:0.2em;
+      text-transform:uppercase;font-weight:600;
+      color:var(--copper);
+    }
+    .time-cell{
+      flex:1;padding:24px 32px;
+      border-right:1px solid var(--border);
+    }
+    .time-cell:last-child{border-right:none;}
+    .time-cell .t-day{
+      font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;
+      color:var(--muted);font-weight:500;margin-bottom:4px;
+    }
+    .time-cell .t-time{
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.75rem;font-weight:700;color:var(--forest);
+    }
+    .time-cell .t-sub{
+      font-size:0.68rem;color:var(--muted);margin-top:2px;
+    }
+
+    /* SERMON — dark forest, asymmetric */
+    .sermon-section{background:var(--forest);padding:100px 0;overflow:hidden;}
+    .sermon-inner{
+      max-width:1200px;margin:0 auto;padding:0 56px;
+      display:grid;grid-template-columns:5fr 4fr;gap:80px;align-items:center;
+    }
+    .sermon-video{
+      position:relative;aspect-ratio:16/9;
+      background:var(--forest2);border-radius:2px;overflow:hidden;
+      cursor:pointer;
+    }
+    .sermon-video img{width:100%;height:100%;object-fit:cover;opacity:0.6;}
+    .play-wrap{
+      position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    }
+    .play-ring{
+      width:68px;height:68px;border-radius:50%;
+      border:1.5px solid rgba(255,255,255,0.4);
+      display:flex;align-items:center;justify-content:center;
+      transition:all 0.2s;background:rgba(255,255,255,0.08);
+    }
+    .sermon-video:hover .play-ring{background:var(--copper);border-color:var(--copper);}
+    .play-tri{width:0;height:0;border-top:11px solid transparent;border-bottom:11px solid transparent;border-left:18px solid white;margin-left:3px;}
+    .sermon-label{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper);font-weight:600;margin-bottom:14px;}
+    .sermon-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2.4rem;font-weight:700;color:var(--white);
+      line-height:1.15;margin-bottom:10px;
+    }
+    .sermon-meta{font-size:0.78rem;color:rgba(255,255,255,0.4);margin-bottom:24px;}
+    .sermon-desc{font-size:0.95rem;color:rgba(255,255,255,0.5);line-height:1.8;margin-bottom:32px;}
+
+    /* PASTOR — ivory bg, reversed grid */
+    .pastor-section{background:var(--white);padding:100px 0;}
+    .pastor-inner{
+      max-width:1200px;margin:0 auto;padding:0 56px;
+      display:grid;grid-template-columns:4fr 5fr;gap:80px;align-items:center;
+    }
+    .pastor-img{
+      position:relative;
+    }
+    .pastor-img img{
+      width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;
+      border-radius:2px;
+      filter:sepia(10%) contrast(1.05);
+    }
+    .pastor-img::before{
+      content:'';
+      position:absolute;top:20px;left:20px;right:-20px;bottom:-20px;
+      border:1px solid var(--copper);
+      border-radius:2px;
+      z-index:0;
+    }
+    .pastor-img img{position:relative;z-index:1;}
+    .pastor-content{padding:16px 0;}
+    .p-tag{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper);font-weight:600;margin-bottom:16px;}
+    .pastor-name{
+      font-family:'Cormorant Garamond',serif;
+      font-size:3rem;font-weight:700;line-height:1.1;
+      color:var(--forest);margin-bottom:6px;
+    }
+    .pastor-title-lbl{font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:28px;}
+    .pastor-bio{font-size:1rem;color:#444;line-height:1.85;margin-bottom:28px;}
+    .pastor-quote{
+      background:var(--ivory);border-left:3px solid var(--copper);
+      padding:20px 24px;border-radius:0 2px 2px 0;margin-bottom:32px;
+    }
+    .pastor-quote p{
+      font-family:'Cormorant Garamond',serif;font-style:italic;
+      font-size:1.2rem;color:var(--forest);line-height:1.6;
+    }
+    .pastor-quote cite{
+      font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;
+      color:var(--muted);font-style:normal;display:block;margin-top:8px;
+    }
+    .pastor-btns{display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+    .btn-forest{
+      background:var(--forest);color:var(--white);
+      padding:14px 32px;font-size:0.78rem;font-weight:600;
+      letter-spacing:0.1em;text-transform:uppercase;
+      text-decoration:none;border-radius:1px;transition:background 0.2s;
+      display:inline-block;
+    }
+    .btn-forest:hover{background:var(--forest2);}
+    .link-copper{
+      font-size:0.75rem;font-weight:600;letter-spacing:0.1em;
+      text-transform:uppercase;color:var(--copper);text-decoration:none;
+      border-bottom:1px solid var(--copper);padding-bottom:2px;
+    }
+
+    /* CAMPUS BANNER */
+    .campus-banner{
+      position:relative;height:420px;overflow:hidden;
+    }
+    .campus-banner img{width:100%;height:100%;object-fit:cover;object-position:center 30%;}
+    .campus-overlay{
+      position:absolute;inset:0;
+      background:linear-gradient(to right, rgba(26,46,30,0.85) 0%, rgba(26,46,30,0.4) 60%, transparent 100%);
+      display:flex;align-items:center;padding:0 56px;
+    }
+    .campus-text{max-width:520px;}
+    .campus-tag{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper);font-weight:600;margin-bottom:12px;}
+    .campus-text h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:3rem;font-weight:700;color:var(--white);line-height:1.1;margin-bottom:12px;
+    }
+    .campus-text p{font-size:1rem;color:rgba(255,255,255,0.65);line-height:1.7;}
+
+    /* MINISTRIES — stacked rows */
+    .min-section{background:var(--ivory2);padding:100px 56px;}
+    .min-header{max-width:1200px;margin:0 auto 56px;display:flex;justify-content:space-between;align-items:flex-end;}
+    .min-header h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:3rem;font-weight:700;color:var(--forest);line-height:1.1;
+    }
+    .min-header p{font-size:0.9rem;color:var(--muted);max-width:300px;text-align:right;line-height:1.7;}
+    .min-grid{
+      max-width:1200px;margin:0 auto;
+      display:grid;grid-template-columns:1fr 1fr;gap:2px;
+    }
+    .min-card{
+      background:var(--white);padding:40px 44px;
+      display:flex;gap:32px;align-items:flex-start;
+      text-decoration:none;color:inherit;
+      transition:background 0.2s;border-radius:1px;
+    }
+    .min-card:hover{background:var(--forest);}
+    .min-card:hover .min-name{color:var(--white);}
+    .min-card:hover .min-desc{color:rgba(255,255,255,0.55);}
+    .min-card:hover .min-arrow{color:var(--copper);}
+    .min-card.full{grid-column:span 2;}
+    .min-icon-wrap{
+      width:52px;height:52px;flex-shrink:0;
+      background:var(--ivory2);border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      transition:background 0.2s;
+    }
+    .min-card:hover .min-icon-wrap{background:rgba(255,255,255,0.1);}
+    .min-body{flex:1;}
+    .min-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--forest);margin-bottom:8px;transition:color 0.2s;}
+    .min-desc{font-size:0.85rem;color:var(--muted);line-height:1.7;margin-bottom:12px;transition:color 0.2s;}
+    .min-arrow{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--copper);font-weight:600;transition:color 0.2s;}
+
+    /* CONNECT STEPS */
+    .steps-section{background:var(--white);padding:100px 56px;}
+    .steps-inner{max-width:1200px;margin:0 auto;}
+    .steps-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;}
+    .steps-top h2{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--forest);line-height:1.1;}
+    .steps-top p{font-size:0.9rem;color:var(--muted);max-width:280px;text-align:right;line-height:1.7;}
+    .steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+    .step-card{background:var(--ivory);padding:48px 36px;border-radius:1px;}
+    .step-n{
+      font-family:'Cormorant Garamond',serif;
+      font-size:5rem;font-weight:700;
+      color:var(--copper);opacity:0.2;
+      line-height:1;margin-bottom:20px;
+    }
+    .step-card h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--forest);margin-bottom:10px;}
+    .step-card p{font-size:0.88rem;color:var(--muted);line-height:1.75;margin-bottom:24px;}
+    .step-link{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--copper);font-weight:600;text-decoration:none;border-bottom:1px solid var(--copper);padding-bottom:2px;}
+
+    /* GIVE CTA */
+    .give-section{
+      background:var(--forest);padding:100px 56px;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:48px;flex-wrap:wrap;
+    }
+    .give-left h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2rem,4vw,3.5rem);font-weight:700;
+      color:var(--white);line-height:1.1;max-width:600px;
+    }
+    .give-left h2 em{font-style:italic;color:var(--copper);}
+    .give-left p{font-size:1rem;color:rgba(255,255,255,0.45);margin-top:16px;line-height:1.7;max-width:480px;}
+    .give-btns{display:flex;gap:14px;flex-wrap:wrap;flex-shrink:0;}
+
+    /* FOOTER */
+    footer{background:#0e1c11;padding:64px 56px 40px;}
+    .footer-grid{
+      max-width:1200px;margin:0 auto;
+      display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;
+      padding-bottom:48px;
+      border-bottom:1px solid rgba(255,255,255,0.07);
+    }
+    .footer-brand img{height:40px;margin-bottom:20px;opacity:0.85;}
+    .footer-brand p{font-size:0.82rem;color:rgba(255,255,255,0.3);line-height:1.7;margin-bottom:20px;}
+    .footer-addr{font-size:0.78rem;color:rgba(255,255,255,0.25);line-height:1.8;font-style:normal;}
+    .footer-col h5{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper);font-weight:600;margin-bottom:18px;}
+    .footer-col a{display:block;font-size:0.82rem;color:rgba(255,255,255,0.35);text-decoration:none;margin-bottom:10px;transition:color 0.2s;}
+    .footer-col a:hover{color:var(--white);}
+    .footer-bottom{
+      max-width:1200px;margin:28px auto 0;
+      display:flex;justify-content:space-between;align-items:center;
+    }
+    .footer-bottom p{font-size:0.7rem;color:rgba(255,255,255,0.18);}
+    .social-row{display:flex;gap:20px;}
+    .social-row a{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;}
+    .social-row a:hover{color:var(--copper);}
+
+    /* MOBILE */
+    @media(max-width:860px){
+      nav,nav.scrolled{padding:14px 24px;}
+      .nav-links a:not(.nav-cta){display:none;}
+      .hero{grid-template-columns:1fr;position:relative;}
+      .hero-right{
+        position:absolute;inset:0;z-index:0;display:block;
+      }
+      .hero-right img{width:100%;height:100%;object-fit:cover;object-position:center;}
+      .hero-right::after{
+        content:'';position:absolute;inset:0;
+        background:rgba(26,46,30,0.82);
+      }
+      .hero-left{
+        padding:120px 24px 64px;
+        position:relative;z-index:1;
+        background:transparent;
+      }
+      .hero-left::after{display:none;}
+      .times-band .times-inner{flex-direction:column;}
+      .times-label-cell{border-right:none;border-bottom:1px solid var(--border);padding:16px 24px;}
+      .time-cell{border-right:none;border-bottom:1px solid var(--border);padding:16px 24px;}
+      .sermon-inner,.pastor-inner{grid-template-columns:1fr;gap:40px;padding:0 24px;}
+      .min-section,.steps-section,.give-section{padding:72px 24px;}
+      .min-grid{grid-template-columns:1fr;}
+      .min-card.full{grid-column:span 1;}
+      .min-header,.steps-top{flex-direction:column;align-items:flex-start;gap:12px;}
+      .min-header p,.steps-top p{text-align:left;max-width:100%;}
+      .steps-row{grid-template-columns:1fr;}
+      .give-section{flex-direction:column;}
+      .campus-overlay{padding:0 24px;}
+      .footer-grid{grid-template-columns:1fr 1fr;}
+      .footer-brand{grid-column:span 2;}
+      .footer-bottom{flex-direction:column;gap:12px;text-align:center;}
+      footer{padding:48px 24px 32px;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="#" class="nav-logo"><img src="data:image/png;base64,STRIPPED_FOR_REPO" alt="Tabernacle Baptist Church"></a>
+    <div class="nav-links">
+      <a href="https://tabernaclewilson.online.church" target="_blank">Watch Online</a>
+      <a href="https://www.tbcwilson.com/sermons">Sermons</a>
+      <a href="https://www.tbcwilson.com/connect-groups">Connect</a>
+      <a href="https://www.tbcwilson.com/ministries">Ministries</a>
+      <a href="https://www.tbcwilson.com/about-tabernacle">About</a>
+      <a href="https://www.tbcwilson.com/im-new" class="nav-cta">Plan a Visit</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">Wilson, North Carolina</div>
+      <h1>A Church<br>for <em>All</em><br>People.</h1>
+      <p class="hero-mission">Helping people to know God, find freedom, discover their purpose, and to make a difference.</p>
+      <div class="hero-btns">
+        <a href="https://www.tbcwilson.com/im-new" class="btn-copper">Plan a Visit</a>
+        <a href="https://tabernaclewilson.online.church" target="_blank" class="btn-ghost-light">Watch Live</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="data:image/png;base64,STRIPPED_FOR_REPO" alt="Tabernacle Baptist Church">
+    </div>
+  </section>
+
+  <!-- SERVICE TIMES -->
+  <div class="times-band">
+    <div class="times-inner">
+      <div class="times-label-cell">Service Times</div>
+      <div class="time-cell">
+        <div class="t-day">Connect Groups</div>
+        <div class="t-time">9:00 AM</div>
+        <div class="t-sub">Sundays Before Service</div>
+      </div>
+      <div class="time-cell">
+        <div class="t-day">Sunday Morning</div>
+        <div class="t-time">10:00 AM</div>
+        <div class="t-sub">Worship &amp; Teaching</div>
+      </div>
+      <div class="time-cell">
+        <div class="t-day">Sunday Evening</div>
+        <div class="t-time">6:00 PM</div>
+        <div class="t-sub">Evening Service</div>
+      </div>
+      <div class="time-cell">
+        <div class="t-day">Wednesday</div>
+        <div class="t-time">7:00 PM</div>
+        <div class="t-sub">Bible Study &amp; Prayer</div>
+      </div>
+      <div class="time-cell">
+        <div class="t-day">Location</div>
+        <div class="t-time" style="font-size:1rem;padding-top:4px;">1815 Airport Blvd W</div>
+        <div class="t-sub">Wilson, NC 27893</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERMON -->
+  <section class="sermon-section">
+    <div class="sermon-inner">
+      <div class="sermon-video">
+        <div style="width:100%;height:100%;background:var(--forest2);display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:rgba(255,255,255,0.15);letter-spacing:0.1em;">Latest Message</span>
+        </div>
+        <div class="play-wrap"><div class="play-ring"><div class="play-tri"></div></div></div>
+      </div>
+      <div>
+        <div class="sermon-label">Latest Message</div>
+        <h3 class="sermon-title">The Power of Faithful Obedience</h3>
+        <div class="sermon-meta">Dr. Joe Shakour &nbsp;·&nbsp; June 2026</div>
+        <p class="sermon-desc">What does it look like to trust God when the path isn't clear? This week Dr. Shakour unpacks what faithful obedience really means — and why it's the foundation of everything God wants to do in your life.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="https://www.tbcwilson.com/sermons" class="btn-copper">Watch Sermon</a>
+          <a href="https://www.tbcwilson.com/audio-sermons" style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;display:flex;align-items:center;">Audio Library →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PASTOR -->
+  <section class="pastor-section">
+    <div class="pastor-inner">
+      <div class="pastor-img">
+        <img src="data:image/png;base64,STRIPPED_FOR_REPO" alt="Dr. Joe Shakour">
+      </div>
+      <div class="pastor-content">
+        <div class="p-tag">Meet Our Pastor</div>
+        <h3 class="pastor-name">Dr. Joe Shakour</h3>
+        <div class="pastor-title-lbl">Senior Pastor · Tabernacle Baptist Church</div>
+        <p class="pastor-bio">Dr. Shakour has a passion to see people find and follow Jesus. Each week he brings practical, grounded messages from Scripture designed to meet you right where you are — in whatever season of life you're walking through.</p>
+        <div class="pastor-quote">
+          <p>"Our heartbeat is helping people know God, find freedom, and discover the purpose He placed in them before they were born."</p>
+          <cite>— Dr. Joe Shakour</cite>
+        </div>
+        <div class="pastor-btns">
+          <a href="https://www.tbcwilson.com/meet-our-team" class="btn-forest">Meet the Team</a>
+          <a href="https://www.tbcwilson.com/sermons" class="link-copper">Listen to a Message →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAMPUS BANNER -->
+  <div class="campus-banner">
+    <img src="data:image/png;base64,STRIPPED_FOR_REPO" alt="TBC Wilson Campus Expansion">
+    <div class="campus-overlay">
+      <div class="campus-text">
+        <div class="campus-tag">Growing Together</div>
+        <h2>Building for the<br>Future of Wilson.</h2>
+        <p>Our new sanctuary — making room for every person God brings through our doors.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MINISTRIES -->
+  <section class="min-section">
+    <div class="min-header">
+      <div>
+        <div style="font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper);font-weight:600;margin-bottom:10px;">Ministries</div>
+        <h2>A Church That<br>Shows Up.</h2>
+      </div>
+      <p>Whatever you're walking through, there's a place for you at Tabernacle.</p>
+    </div>
+    <div class="min-grid">
+      <a href="https://www.tbcwilson.com/deafministry" class="min-card">
+        <div class="min-icon-wrap">
+          <svg width="24" height="24" fill="none" viewBox="0 0 256 256" stroke="#b87333" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><path d="M128,64a64,64,0,0,1,64,64c0,26-16,48-16,48H96s-32-22-32-48A64,64,0,0,1,128,64Z"/><path d="M96,176c0,22,14,40,32,40s32-18,32-40"/><line x1="128" y1="16" x2="128" y2="32"/></svg>
+        </div>
+        <div class="min-body">
+          <div class="min-name">Deaf Ministry</div>
+          <div class="min-desc">Fully interpreted services and community for the Deaf and hard of hearing in Wilson.</div>
+          <div class="min-arrow">Learn More →</div>
+        </div>
+      </a>
+      <a href="https://www.tbcwilson.com/espanol" class="min-card">
+        <div class="min-icon-wrap">
+          <svg width="24" height="24" fill="none" viewBox="0 0 256 256"><circle cx="128" cy="128" r="96" stroke="#b87333" stroke-width="14" fill="none"/><ellipse cx="128" cy="128" rx="40" ry="96" stroke="#b87333" stroke-width="14" fill="none"/><line x1="32" y1="128" x2="224" y2="128" stroke="#b87333" stroke-width="14"/><line x1="40" y1="88" x2="216" y2="88" stroke="#b87333" stroke-width="14"/><line x1="40" y1="168" x2="216" y2="168" stroke="#b87333" stroke-width="14"/></svg>
+        </div>
+        <div class="min-body">
+          <div class="min-name">Español</div>
+          <div class="min-desc">Spanish-language ministry serving our Hispanic community with the Gospel in their heart language.</div>
+          <div class="min-arrow">Learn More →</div>
+        </div>
+      </a>
+      <a href="https://www.tbcwilson.com/grief-share" class="min-card">
+        <div class="min-icon-wrap">
+          <svg width="24" height="24" fill="none" viewBox="0 0 256 256"><path d="M128,216S28,160,28,92A52,52,0,0,1,128,72h0A52,52,0,0,1,228,92C228,160,128,216,128,216Z" stroke="#b87333" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="min-body">
+          <div class="min-name">GriefShare</div>
+          <div class="min-desc">A safe, caring community for people grieving the loss of a spouse, child, family member, or friend.</div>
+          <div class="min-arrow">Learn More →</div>
+        </div>
+      </a>
+      <a href="https://www.tbcwilson.com/divorce-care" class="min-card">
+        <div class="min-icon-wrap">
+          <svg width="24" height="24" fill="none" viewBox="0 0 256 256"><circle cx="88" cy="100" r="44" stroke="#b87333" stroke-width="14" fill="none"/><path d="M20,212a88,88,0,0,1,136,0" stroke="#b87333" stroke-width="14" fill="none" stroke-linecap="round"/><path d="M168,60a44,44,0,1,1,0,80" stroke="#b87333" stroke-width="14" fill="none" stroke-linecap="round"/><path d="M192,212a88,88,0,0,0-31-26" stroke="#b87333" stroke-width="14" fill="none" stroke-linecap="round"/></svg>
+        </div>
+        <div class="min-body">
+          <div class="min-name">Divorce Care</div>
+          <div class="min-desc">Healing and hope for people experiencing the pain and loneliness of separation and divorce.</div>
+          <div class="min-arrow">Learn More →</div>
+        </div>
+      </a>
+      <a href="https://www.tbcwilson.com/bridge-to-recovery" class="min-card full">
+        <div class="min-icon-wrap">
+          <svg width="24" height="24" fill="none" viewBox="0 0 256 256"><path d="M24,176 Q128,80 232,176" stroke="#b87333" stroke-width="14" fill="none" stroke-linecap="round"/><line x1="24" y1="120" x2="24" y2="176" stroke="#b87333" stroke-width="14" stroke-linecap="round"/><line x1="232" y1="120" x2="232" y2="176" stroke="#b87333" stroke-width="14" stroke-linecap="round"/><line x1="128" y1="80" x2="128" y2="176" stroke="#b87333" stroke-width="14" stroke-linecap="round"/><line x1="24" y1="176" x2="232" y2="176" stroke="#b87333" stroke-width="14" stroke-linecap="round"/></svg>
+        </div>
+        <div class="min-body">
+          <div class="min-name">Bridge to Recovery</div>
+          <div class="min-desc">Freedom-focused recovery ministry — meeting people in addiction and walking with them toward healing and wholeness.</div>
+          <div class="min-arrow">Learn More →</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- NEXT STEPS -->
+  <section class="steps-section">
+    <div class="steps-inner">
+      <div class="steps-top">
+        <div>
+          <div style="font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper);font-weight:600;margin-bottom:10px;">Next Steps</div>
+          <h2>Find Your<br>Place Here.</h2>
+        </div>
+        <p>Whether you're brand new or you've been here for years — there's always a next step at Tabernacle.</p>
+      </div>
+      <div class="steps-row">
+        <div class="step-card">
+          <div class="step-n">I</div>
+          <h3>I'm New</h3>
+          <p>Not sure what to expect? Start here. We'd love to meet you and help you feel at home from the first Sunday.</p>
+          <a href="https://www.tbcwilson.com/im-new" class="step-link">Plan a Visit →</a>
+        </div>
+        <div class="step-card">
+          <div class="step-n">II</div>
+          <h3>Connect Groups</h3>
+          <p>Community happens in small groups. We have groups for every stage of life — join one this Sunday at 9am.</p>
+          <a href="https://www.tbcwilson.com/connect-groups" class="step-link">Find a Group →</a>
+        </div>
+        <div class="step-card">
+          <div class="step-n">III</div>
+          <h3>Serve</h3>
+          <p>You were made to make a difference. Discover how your gifts, passions, and story can serve others right here.</p>
+          <a href="https://www.tbcwilson.com/next-steps" class="step-link">Start Serving →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GIVE -->
+  <section class="give-section">
+    <div class="give-left">
+      <h2>Partner with What<br>God Is Doing<br>in <em>Wilson.</em></h2>
+      <p>Your generosity fuels every ministry, every service, and every life changed through Tabernacle Baptist.</p>
+    </div>
+    <div class="give-btns">
+      <a href="https://www.tbcwilson.com/give" class="btn-copper">Give Online</a>
+      <a href="https://tabernaclewilson.online.church" target="_blank" class="btn-ghost-light">Watch Live</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="data:image/png;base64,STRIPPED_FOR_REPO" alt="Tabernacle Baptist Church">
+        <p>A church for all people in Wilson, NC. Helping people know God, find freedom, discover their purpose, and make a difference.</p>
+        <address class="footer-addr">
+          1815 Airport Blvd W · Wilson, NC 27893<br>
+          (252) 243-5369
+        </address>
+      </div>
+      <div class="footer-col">
+        <h5>Visit</h5>
+        <a href="https://www.tbcwilson.com/im-new">I'm New</a>
+        <a href="https://www.tbcwilson.com/about-tabernacle">About Us</a>
+        <a href="https://www.tbcwilson.com/meet-our-team">Meet the Team</a>
+        <a href="https://www.tbcwilson.com/events">Events</a>
+      </div>
+      <div class="footer-col">
+        <h5>Grow</h5>
+        <a href="https://www.tbcwilson.com/sermons">Sermons</a>
+        <a href="https://www.tbcwilson.com/connect-groups">Connect Groups</a>
+        <a href="https://www.tbcwilson.com/next-steps">Next Steps</a>
+        <a href="https://www.tbcwilson.com/student-life">Student Life</a>
+      </div>
+      <div class="footer-col">
+        <h5>Ministries</h5>
+        <a href="https://www.tbcwilson.com/deafministry">Deaf Ministry</a>
+        <a href="https://www.tbcwilson.com/espanol">Español</a>
+        <a href="https://www.tbcwilson.com/grief-share">GriefShare</a>
+        <a href="https://www.tbcwilson.com/bridge-to-recovery">Bridge to Recovery</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Tabernacle Baptist Church · Wilson, NC · All Rights Reserved</p>
+      <div class="social-row">
+        <a href="https://www.facebook.com/TabernacleWilsonNC/" target="_blank">Facebook</a>
+        <a href="https://twitter.com/tabernacleNC" target="_blank">Twitter</a>
+        <a href="https://www.youtube.com/c/TabernacleBaptistChurchWilson" target="_blank">YouTube</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>50));
+  </script>
+</body>
+</html>

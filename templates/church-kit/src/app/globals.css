@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #1a2433;
+  --ink-soft: #334155;
+  --cream: #f7f3ec;
+  --cream-deep: #efe7da;
+  --line: #d9d0c2;
+  --accent: #9a6b3f;
+  --white: #ffffff;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-kit-sans);
+  --font-serif: var(--font-kit-serif);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink-soft);
+  font-family: var(--font-kit-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 35%, white);
+}

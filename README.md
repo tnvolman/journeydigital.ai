@@ -49,7 +49,7 @@ Behavior:
 
 ### Environment variables
 
-See `.env.example`. The same variables apply in local `.env.local` and on **Railway** (production):
+See `.env.example`. The same variable names apply in local `.env.local` and on whatever host serves production:
 
 | Variable | Required to email | Notes |
 | --- | --- | --- |
@@ -59,20 +59,13 @@ See `.env.example`. The same variables apply in local `.env.local` and on **Rail
 
 **Mail note:** Zoho on `journeydigital.ai` is the planned long-term mail path. Contact address TBD with Michael. Until then, use Resend + env vars only — no hardcoded recipient addresses in source.
 
-## Production deploy (Railway + Cloudflare)
+## Hosting status (Aug 2026 hold)
 
-**Current production host is Railway.** The live site is https://journeydigital.ai with DNS on Cloudflare. Keep production on Railway unless Michael explicitly asks to cut over elsewhere.
+**Live today:** https://journeydigital.ai stays on the **shared Railway `web` service** (the-forge / Sanctuary piggyback), with DNS on Cloudflare. Journey Digital is **not** a dedicated Railway service for this repo — do **not** reconnect that shared `web` service to `tnvolman/journeydigital.ai`.
 
-1. Connect this GitHub repo to the existing Railway project (or redeploy from the linked service).  
-2. Set `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, and optionally `CONTACT_FROM_EMAIL` as Railway service variables (same names as `.env.example`).  
-3. Build/start with the usual Next.js scripts (`npm run build` / `npm start`); Railway’s Node defaults are fine.  
-4. Keep the custom domain on Cloudflare pointed at Railway’s target (CNAME/proxy as already configured for `journeydigital.ai`).
+**Future cutover:** Vercel is the intended production host **only when Michael explicitly approves**. Do not present Vercel as current production, and do not drive a cutover while the Vercel connector OAuth is broken. When approved: import `tnvolman/journeydigital.ai` on Vercel, set the Resend/consultation env vars above, then point Cloudflare DNS for `journeydigital.ai` at Vercel.
 
-JSONL file persistence may not survive across ephemeral containers — submissions are still accepted and logged; configure Resend so leads land in email.
-
-### Optional: Vercel
-
-Vercel is an **optional alternate** deploy path, not the primary recommendation. Do not push a Vercel cutover unless Michael asks. If you use it for a preview or experiment: import the repo, set the same Resend/consultation env vars, and leave production DNS on Railway/Cloudflare.
+JSONL file persistence may not survive on ephemeral filesystems — submissions are still accepted and logged; configure Resend so leads land in email.
 
 ## Church kit
 

@@ -13,7 +13,8 @@ This repository is the source of truth for the marketing site (Next.js) plus a r
 | Path | Purpose |
 | --- | --- |
 | `src/` | Marketing site (App Router + TypeScript + Tailwind) |
-| `templates/church-kit/` | Copyable Next.js starter for church client sites (generic placeholders) |
+| `templates/church-kit/` | Copyable Next.js starter — **navy/gold** (`#14174F` / `#C9A84C` / ivory), Playfair + Inter, generic placeholders |
+| `reference/tabernacle-html/` | Michael’s HTML drafts (canonical: navy/gold v3 + admin fields). Explorations stay here. |
 | `content/blog/` | Journal posts (markdown). Add a file to publish at `/blog/<slug>` |
 | `content/incoming-html/` | Drop zone for existing HTML to port into Next.js |
 | `.env.example` | Consultation form / Resend env vars |

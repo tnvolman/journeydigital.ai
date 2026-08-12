@@ -1,22 +1,30 @@
 @import "tailwindcss";
 
+/* Canonical navy/gold direction — see reference/tabernacle-html/README.md */
 :root {
-  --ink: #1a2433;
-  --ink-soft: #334155;
-  --cream: #f7f3ec;
-  --cream-deep: #efe7da;
-  --line: #d9d0c2;
-  --accent: #9a6b3f;
+  --navy: #14174f;
+  --navy-deep: #0f123d;
+  --gold: #c9a84c;
+  --gold-bright: #f5d068;
+  --ivory: #f8f5ee;
+  --ivory-deep: #efe8d8;
+  --ink: #1a1d3a;
+  --muted: #5c6078;
+  --line: color-mix(in srgb, var(--navy) 14%, transparent);
   --white: #ffffff;
 }
 
 @theme inline {
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-ivory: var(--ivory);
+  --color-ivory-deep: var(--ivory-deep);
   --color-ink: var(--ink);
-  --color-ink-soft: var(--ink-soft);
-  --color-cream: var(--cream);
-  --color-cream-deep: var(--cream-deep);
+  --color-muted: var(--muted);
   --color-line: var(--line);
-  --color-accent: var(--accent);
+  --color-white: var(--white);
   --font-sans: var(--font-kit-sans);
   --font-serif: var(--font-kit-serif);
 }
@@ -26,12 +34,50 @@ html {
 }
 
 body {
-  background: var(--cream);
-  color: var(--ink-soft);
+  background: var(--ivory);
+  color: var(--muted);
   font-family: var(--font-kit-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: color-mix(in oklab, var(--accent) 35%, white);
+  background: color-mix(in srgb, var(--gold) 45%, white);
+  color: var(--navy);
+}
+
+.shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .shell {
+    padding-inline: 1.75rem;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise-in {
+  animation: rise-in 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .rise-in {
+    animation: none;
+  }
 }

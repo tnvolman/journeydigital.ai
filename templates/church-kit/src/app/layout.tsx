@@ -1,23 +1,22 @@
 import type { Metadata } from "next";
-import { Libre_Baskerville, Source_Sans_3 } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import { church } from "@/lib/church";
 import "./globals.css";
 
-const sans = Source_Sans_3({
+const sans = Inter({
   variable: "--font-kit-sans",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
 });
 
-const serif = Libre_Baskerville({
+const serif = Playfair_Display({
   variable: "--font-kit-serif",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: `${church.name} — placeholder church site`,
-  description: `${church.tagline} Mobile-first church website starter from Journey Digital.`,
+  title: `${church.name} — church website starter`,
+  description: `${church.tagline} Mobile-first navy/gold church kit from Journey Digital (placeholder sample content).`,
 };
 
 export default function RootLayout({

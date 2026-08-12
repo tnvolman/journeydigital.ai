@@ -49,7 +49,7 @@ Behavior:
 
 ### Environment variables
 
-See `.env.example`. The same variables apply in local `.env.local` and on **Railway** (production):
+See `.env.example`. The same variables apply in local `.env.local` and on **Vercel** (production):
 
 | Variable | Required to email | Notes |
 | --- | --- | --- |
@@ -59,20 +59,20 @@ See `.env.example`. The same variables apply in local `.env.local` and on **Rail
 
 **Mail note:** Zoho on `journeydigital.ai` is the planned long-term mail path. Contact address TBD with Michael. Until then, use Resend + env vars only — no hardcoded recipient addresses in source.
 
-## Production deploy (Railway + Cloudflare)
+## Production deploy (Vercel + Cloudflare)
 
-**Current production host is Railway.** The live site is https://journeydigital.ai with DNS on Cloudflare. Keep production on Railway unless Michael explicitly asks to cut over elsewhere.
+**Current production host is Vercel.** The live site is https://journeydigital.ai with DNS on Cloudflare.
 
-1. Connect this GitHub repo to the existing Railway project (or redeploy from the linked service).  
-2. Set `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, and optionally `CONTACT_FROM_EMAIL` as Railway service variables (same names as `.env.example`).  
-3. Build/start with the usual Next.js scripts (`npm run build` / `npm start`); Railway’s Node defaults are fine.  
-4. Keep the custom domain on Cloudflare pointed at Railway’s target (CNAME/proxy as already configured for `journeydigital.ai`).
+1. In Vercel, import the GitHub repo `tnvolman/journeydigital.ai` (Framework Preset: Next.js).  
+2. Set `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, and optionally `CONTACT_FROM_EMAIL` as project environment variables (same names as `.env.example`).  
+3. Deploy; Vercel runs the usual Next.js build.  
+4. Point Cloudflare DNS for `journeydigital.ai` at Vercel (add the domain in the Vercel project, then use the CNAME/A records Vercel shows — proxy as you prefer on Cloudflare).
 
-JSONL file persistence may not survive across ephemeral containers — submissions are still accepted and logged; configure Resend so leads land in email.
+JSONL file persistence may not survive on serverless/ephemeral filesystems — submissions are still accepted and logged; configure Resend so leads land in email.
 
-### Optional: Vercel
+### Prior note (Railway)
 
-Vercel is an **optional alternate** deploy path, not the primary recommendation. Do not push a Vercel cutover unless Michael asks. If you use it for a preview or experiment: import the repo, set the same Resend/consultation env vars, and leave production DNS on Railway/Cloudflare.
+Journey Digital is **not** a dedicated Railway service. The domain previously piggybacked on a shared Railway `web` service (the-forge / Sanctuary). Treat that as shared-infra history only — do **not** reconnect that shared service to this repo or document Railway as the JD deploy path.
 
 ## Church kit
 

@@ -27,7 +27,7 @@ npm install
 npm run dev
 ```
 
-6. Deploy the copied app as its own project (Railway is fine and matches the marketing site’s production host; Vercel is an optional alternate).
+6. Deploy the copied app as its own project (Vercel matches the marketing site’s production host).
 
 ## Incoming HTML from Michael
 

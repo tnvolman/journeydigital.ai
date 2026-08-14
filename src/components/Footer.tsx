@@ -2,11 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 const links = [
-  { href: "#services", label: "Services" },
-  { href: "#work", label: "Work" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Start a project" },
+  { href: "/#services", label: "Services" },
+  { href: "/#work", label: "Work" },
+  { href: "/#pricing", label: "Pricing" },
+  { href: "/#about", label: "About" },
+  { href: "/blog", label: "Journal" },
+  { href: "/#contact", label: "Start a project" },
 ];
 
 export function Footer() {
@@ -36,13 +37,13 @@ export function Footer() {
 
           <div className="flex flex-col gap-2.5 text-sm text-fog">
             {links.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="transition-colors hover:text-cream"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <Link
               href="/work/tabernacle"

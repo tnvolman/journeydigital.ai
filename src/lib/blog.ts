@@ -15,6 +15,16 @@ export type BlogPost = BlogPostMeta & {
   content: string;
 };
 
+function toIsoDate(value: unknown): string {
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
+    return value.toISOString().slice(0, 10);
+  }
+
+  const text = String(value ?? "").trim();
+  const match = text.match(/^(\d{4}-\d{2}-\d{2})/);
+  return match?.[1] ?? text;
+}
+
 function parsePost(filename: string): BlogPost {
   const slug = filename.replace(/\.md$/, "");
   const raw = fs.readFileSync(path.join(BLOG_DIR, filename), "utf8");
@@ -24,9 +34,13 @@ function parsePost(filename: string): BlogPost {
     slug,
     title: String(data.title ?? slug),
     description: String(data.description ?? ""),
-    date: String(data.date ?? ""),
+    date: toIsoDate(data.date),
     content,
   };
+}
+
+function isPostFile(filename: string): boolean {
+  return filename.endsWith(".md") && filename.toLowerCase() !== "readme.md";
 }
 
 export function getAllPosts(): BlogPostMeta[] {
@@ -34,18 +48,25 @@ export function getAllPosts(): BlogPostMeta[] {
 
   return fs
     .readdirSync(BLOG_DIR)
-    .filter((file) => file.endsWith(".md"))
+    .filter(isPostFile)
     .map((file) => {
-      const { content: _content, ...meta } = parsePost(file);
-      return meta;
+      const post = parsePost(file);
+      return {
+        slug: post.slug,
+        title: post.title,
+        description: post.description,
+        date: post.date,
+      };
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
 export function getPost(slug: string): BlogPost | null {
-  const file = path.join(BLOG_DIR, `${slug}.md`);
+  const filename = `${slug}.md`;
+  if (!isPostFile(filename)) return null;
+  const file = path.join(BLOG_DIR, filename);
   if (!fs.existsSync(file)) return null;
-  return parsePost(`${slug}.md`);
+  return parsePost(filename);
 }
 
 export function formatPostDate(isoDate: string): string {

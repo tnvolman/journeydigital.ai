@@ -1,7 +1,7 @@
 ---
 title: How Much Does a Church Website Cost?
 description: Church website costs range from $500 to $20,000+. Learn what drives the price and how Journey Digital delivers agency-grade quality priced to serve ministry budgets.
-date: 2026-06-18
+date: "2026-06-18"
 ---
 
 ## The honest answer: it depends — but here's what actually drives the price.

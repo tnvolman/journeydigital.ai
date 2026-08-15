@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { formatPostDate, getAllPosts } from "@/lib/blog";
 import { Reveal } from "@/components/Reveal";
@@ -26,8 +27,17 @@ export function Journal() {
           <Reveal className="mt-14">
             <Link
               href={`/blog/${featured.slug}`}
-              className="grid grid-cols-1 items-center gap-4 overflow-hidden rounded-md border border-line bg-bg px-7 py-10 transition-colors hover:bg-panel md:grid-cols-[1fr_auto] md:px-11"
+              className="grid grid-cols-1 items-center gap-6 overflow-hidden rounded-md border border-line bg-bg px-7 py-10 transition-colors hover:bg-panel md:grid-cols-[220px_1fr_auto] md:px-11"
             >
+              {featured.image ? (
+                <Image
+                  src={featured.image}
+                  alt={featured.imageAlt ?? ""}
+                  width={220}
+                  height={146}
+                  className="h-[160px] w-full rounded-sm border border-line object-cover md:h-[146px]"
+                />
+              ) : null}
               <div>
                 <div className="mb-3 text-xs tracking-[0.14em] text-fog uppercase">
                   {formatPostDate(featured.date)}

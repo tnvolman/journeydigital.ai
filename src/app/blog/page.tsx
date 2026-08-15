@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
@@ -47,8 +48,22 @@ export default function JournalIndexPage() {
                 {posts.map((post) => (
                   <article
                     key={post.slug}
-                    className="grid grid-cols-1 items-center gap-4 bg-bg px-7 py-10 transition-colors hover:bg-panel md:grid-cols-[1fr_auto] md:px-11"
+                    className="grid grid-cols-1 items-center gap-4 bg-bg px-7 py-10 transition-colors hover:bg-panel md:grid-cols-[auto_1fr_auto] md:px-11"
                   >
+                    {post.image ? (
+                      <Link
+                        href={`/blog/${post.slug}`}
+                        className="relative block overflow-hidden rounded-sm border border-line md:w-[180px]"
+                      >
+                        <Image
+                          src={post.image}
+                          alt={post.imageAlt ?? ""}
+                          width={180}
+                          height={120}
+                          className="h-[120px] w-full object-cover md:h-[100px]"
+                        />
+                      </Link>
+                    ) : null}
                     <div>
                       <div className="mb-3 text-xs tracking-[0.14em] text-fog uppercase">
                         {formatPostDate(post.date)}

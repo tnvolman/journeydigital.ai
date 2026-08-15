@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
@@ -21,6 +22,9 @@ export async function generateMetadata({
   if (!post) return {};
 
   const title = `${post.title} — Journey Digital`;
+  const images = post.image
+    ? [{ url: post.image, alt: post.imageAlt ?? post.title }]
+    : undefined;
 
   return {
     title,
@@ -31,6 +35,13 @@ export async function generateMetadata({
       url: `https://journeydigital.ai/blog/${post.slug}`,
       type: "article",
       publishedTime: `${post.date}T00:00:00.000Z`,
+      images,
+    },
+    twitter: {
+      card: images ? "summary_large_image" : "summary",
+      title,
+      description: post.description,
+      images: images?.map((image) => image.url),
     },
   };
 }
@@ -58,6 +69,9 @@ export default async function JournalPostPage({
       url: "https://journeydigital.ai",
     },
     url: `https://journeydigital.ai/blog/${post.slug}`,
+    ...(post.image
+      ? { image: `https://journeydigital.ai${post.image}` }
+      : {}),
   };
 
   return (
@@ -90,6 +104,18 @@ export default async function JournalPostPage({
 
         <article className="px-6 py-16 md:px-8 md:py-20">
           <div className="mx-auto max-w-[1140px]">
+            {post.image ? (
+              <figure className="mb-12 overflow-hidden rounded-md border border-line">
+                <Image
+                  src={post.image}
+                  alt={post.imageAlt ?? ""}
+                  width={1600}
+                  height={1067}
+                  className="h-auto w-full object-cover"
+                  priority
+                />
+              </figure>
+            ) : null}
             <MarkdownBody content={post.content} />
           </div>
         </article>

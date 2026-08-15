@@ -9,6 +9,8 @@ export type BlogPostMeta = {
   title: string;
   description: string;
   date: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 export type BlogPost = BlogPostMeta & {
@@ -30,11 +32,16 @@ function parsePost(filename: string): BlogPost {
   const raw = fs.readFileSync(path.join(BLOG_DIR, filename), "utf8");
   const { data, content } = matter(raw);
 
+  const image = data.image ? String(data.image) : undefined;
+  const imageAlt = data.imageAlt ? String(data.imageAlt) : undefined;
+
   return {
     slug,
     title: String(data.title ?? slug),
     description: String(data.description ?? ""),
     date: toIsoDate(data.date),
+    image,
+    imageAlt,
     content,
   };
 }
@@ -56,6 +63,8 @@ export function getAllPosts(): BlogPostMeta[] {
         title: post.title,
         description: post.description,
         date: post.date,
+        image: post.image,
+        imageAlt: post.imageAlt,
       };
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1));

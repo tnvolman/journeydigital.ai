@@ -1,7 +1,7 @@
 ---
 title: Facebook Isn't Your Church Website
 description: Facebook is useful. It is not a front door. Why a visitor still needs times, address, sermons, and a plan-a-visit page they can open without logging in.
-date: "2026-08-18"
+date: "2026-08-14"
 ---
 
 ## Facebook is useful. It is not a front door.

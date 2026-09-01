@@ -2,6 +2,7 @@ import { About } from "@/components/About";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
+import { Journal } from "@/components/Journal";
 import { Nav } from "@/components/Nav";
 import { Pricing } from "@/components/Pricing";
 import { Services } from "@/components/Services";
@@ -19,6 +20,7 @@ export default function HomePage() {
         <Work />
         <Pricing />
         <About />
+        <Journal />
         <ContactForm />
       </main>
       <Footer />

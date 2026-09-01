@@ -14,6 +14,7 @@ This repository is the source of truth for the marketing site (Next.js) plus a r
 | --- | --- |
 | `src/` | Marketing site (App Router + TypeScript + Tailwind) |
 | `templates/church-kit/` | Copyable Next.js starter for church client sites (generic placeholders) |
+| `content/blog/` | Journal posts (markdown). Add a file to publish at `/blog/<slug>` |
 | `content/incoming-html/` | Drop zone for existing HTML to port into Next.js |
 | `.env.example` | Consultation form / Resend env vars |
 
@@ -90,4 +91,4 @@ Michael may provide HTML already built for the marketing site or a church. Drop 
 
 ## Scope of this scaffold
 
-Solid first incremental PR: marketing structure + consultation wiring + church kit. Full Tabernacle case study, proposal/SOW, and blog can follow once content and go-aheads are clear.
+Solid first incremental PR: marketing structure + consultation wiring + church kit. Full Tabernacle case study and proposal/SOW can follow once content and go-aheads are clear. The Journal lives at `/blog` (markdown in `content/blog/`).

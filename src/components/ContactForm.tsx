@@ -17,7 +17,7 @@ export function ContactForm() {
       <div className="mx-auto grid max-w-[1140px] grid-cols-1 items-start gap-10 px-6 md:grid-cols-[0.9fr_1.1fr] md:gap-[60px] md:px-8">
         <Reveal>
           <div className="mb-5 flex items-center gap-3 text-xs font-semibold tracking-[0.22em] text-accent uppercase">
-            <span className="font-medium text-fog">05</span> Start a project
+            <span className="font-medium text-fog">06</span> Start a project
           </div>
           <h2 className="mb-5 font-serif text-[clamp(30px,4.4vw,48px)] leading-[1.08] font-semibold tracking-[-0.02em] text-cream">
             Let&apos;s build something that lasts.

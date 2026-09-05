@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 
 const cells = [
@@ -48,6 +49,14 @@ export function Services() {
               </div>
             ))}
           </div>
+        </Reveal>
+        <Reveal className="mt-10">
+          <Link
+            href="/church-website-not-a-template"
+            className="inline-flex gap-2 border-b border-accent pb-1 text-[15px] font-semibold text-cream transition-[gap] hover:gap-3.5"
+          >
+            Why not another template builder →
+          </Link>
         </Reveal>
       </div>
     </section>

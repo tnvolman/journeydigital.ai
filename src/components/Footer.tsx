@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { studioPages } from "@/lib/site";
 
 const links = [
   { href: "/#services", label: "Services" },
   { href: "/#work", label: "Work" },
   { href: "/#pricing", label: "Pricing" },
-  { href: "/#about", label: "About" },
   { href: "/blog", label: "Journal" },
   { href: "/#contact", label: "Start a project" },
 ];
@@ -35,22 +35,29 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-2.5 text-sm text-fog">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="transition-colors hover:text-cream"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              href="/work/tabernacle"
-              className="transition-colors hover:text-cream"
-            >
-              Draft preview notes
-            </Link>
+          <div className="flex flex-wrap gap-x-16 gap-y-8">
+            <div className="flex flex-col gap-2.5 text-sm text-fog">
+              {links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="transition-colors hover:text-cream"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+            <div className="flex flex-col gap-2.5 text-sm text-fog">
+              {studioPages.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="transition-colors hover:text-cream"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 

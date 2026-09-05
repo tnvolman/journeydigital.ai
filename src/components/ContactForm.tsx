@@ -9,7 +9,13 @@ import { Reveal } from "@/components/Reveal";
 
 const initial: ConsultationActionState = { ok: false, message: "" };
 
-export function ContactForm() {
+export function ContactForm({
+  numbered = true,
+  note,
+}: {
+  numbered?: boolean;
+  note?: string;
+}) {
   const [state, action, pending] = useActionState(submitConsultation, initial);
 
   return (
@@ -17,7 +23,8 @@ export function ContactForm() {
       <div className="mx-auto grid max-w-[1140px] grid-cols-1 items-start gap-10 px-6 md:grid-cols-[0.9fr_1.1fr] md:gap-[60px] md:px-8">
         <Reveal>
           <div className="mb-5 flex items-center gap-3 text-xs font-semibold tracking-[0.22em] text-accent uppercase">
-            <span className="font-medium text-fog">06</span> Start a project
+            {numbered ? <span className="font-medium text-fog">06</span> : null}
+            Start a project
           </div>
           <h2 className="mb-5 font-serif text-[clamp(30px,4.4vw,48px)] leading-[1.08] font-semibold tracking-[-0.02em] text-cream">
             Let&apos;s build something that lasts.
@@ -26,6 +33,11 @@ export function ContactForm() {
             Tell us about your church and what you&apos;re hoping for. We&apos;ll
             reach out within a day — no pressure, no sales pitch.
           </p>
+          {note ? (
+            <p className="mt-4 max-w-[40ch] text-[15px] leading-[1.7] text-muted">
+              {note}
+            </p>
+          ) : null}
         </Reveal>
 
         <Reveal>

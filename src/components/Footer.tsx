@@ -46,12 +46,6 @@ export function Footer() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/work/tabernacle"
-                className="transition-colors hover:text-cream"
-              >
-                Draft preview notes
-              </Link>
             </div>
             <div className="flex flex-col gap-2.5 text-sm text-fog">
               {studioPages.map((link) => (

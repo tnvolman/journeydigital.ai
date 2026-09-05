@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PricingCare } from "@/components/PricingCare";
 import { Reveal } from "@/components/Reveal";
 import { StudioPage } from "@/components/StudioPage";
 import { SITE_URL } from "@/lib/site";
@@ -179,12 +180,7 @@ export default function AboutPage() {
                 retainers. We&apos;ll tell you honestly what you need and what
                 you don&apos;t.
               </p>
-              <p className="mt-6 text-[16px] leading-[1.78] text-fog">
-                If about $2,000 feels like more than your church can carry
-                right now, still reach out. We would rather hear from you than
-                have a pastor stay quiet because the number felt too big. We
-                will say honestly what we can work out.
-              </p>
+              <PricingCare className="mt-6 text-[16px] leading-[1.78] text-fog" />
             </Reveal>
           </div>
         </section>

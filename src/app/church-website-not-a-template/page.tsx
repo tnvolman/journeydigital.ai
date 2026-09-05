@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PricingCare } from "@/components/PricingCare";
 import { Reveal } from "@/components/Reveal";
 import { StudioPage } from "@/components/StudioPage";
 import { SITE_URL } from "@/lib/site";
@@ -148,6 +149,7 @@ export default function ChurchWebsiteNotATemplatePage() {
               powered by The Forge. If you have outgrown templates — or never
               wanted one — start a project with us.
             </p>
+            <PricingCare className="mt-6 text-[16px] leading-[1.78] text-fog" />
           </Reveal>
         </div>
       </section>

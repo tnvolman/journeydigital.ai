@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PricingCare } from "@/components/PricingCare";
 import { Reveal } from "@/components/Reveal";
 import { StudioPage } from "@/components/StudioPage";
 import { SITE_URL } from "@/lib/site";
@@ -138,6 +139,7 @@ export default function WilsonChurchWebsitesPage() {
                 Tell us about your church at journeydigital.ai. We reach out
                 within a day.
               </p>
+              <PricingCare className="mt-5 text-[16px] leading-[1.78] text-fog" />
             </Reveal>
           </div>
         </section>

@@ -19,32 +19,22 @@ export function Work() {
             <div className="grid grid-cols-1 items-center gap-9 md:grid-cols-[0.85fr_1.15fr] md:gap-14">
               <div className="relative overflow-hidden rounded-lg border border-line bg-[linear-gradient(160deg,#1e1e1e,#161616)] p-12 before:absolute before:inset-y-0 before:left-0 before:w-1 before:bg-accent">
                 <div className="text-[11.5px] tracking-[0.2em] text-accent uppercase">
-                  First project underway · Wilson, NC
+                  Wilson, NC
                 </div>
                 <h3 className="mt-3.5 mb-[18px] font-serif text-[30px] font-semibold tracking-[-0.02em] text-cream">
-                  Tabernacle Baptist Church
+                  Built for the churches we serve next
                 </h3>
                 <p className="mb-6 text-[15.5px] text-fog">
-                  Preview in progress for a historic Wilson congregation —
-                  service times, sermons, and ministries shaped to feel at home
-                  on any phone. Not a finished case study yet.
+                  Service times, sermons, ministries, and a visit page a
+                  stranger can use on a phone. We&apos;ll show the first site
+                  when the church is ready.
                 </p>
                 <Link
                   href="/#contact"
                   className="inline-flex gap-2 border-b border-accent pb-1 text-[15px] font-semibold text-cream transition-[gap] hover:gap-3.5"
                 >
-                  Ask about the preview →
+                  Start a project →
                 </Link>
-                <p className="mt-4 text-[13px] text-muted">
-                  Draft notes only —{" "}
-                  <Link
-                    href="/work/tabernacle"
-                    className="underline decoration-line underline-offset-2 hover:text-fog"
-                  >
-                    internal preview page
-                  </Link>
-                  .
-                </p>
               </div>
 
               <div>

@@ -1,8 +1,9 @@
 import type { ReactNode } from "react";
 import { ContactForm } from "@/components/ContactForm";
+import { EmailLink } from "@/components/EmailLink";
 import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
-import { studioPages } from "@/lib/site";
+import { CONTACT_EMAIL, studioPages } from "@/lib/site";
 import Link from "next/link";
 
 export function StudioPage({
@@ -33,6 +34,20 @@ export function StudioPage({
             {lede ? (
               <div className="max-w-[62ch] text-lg text-fog">{lede}</div>
             ) : null}
+            <p className="mt-6 max-w-[62ch] text-[16px] text-silver">
+              Email{" "}
+              <EmailLink className="text-cream underline decoration-line underline-offset-2 transition-colors hover:decoration-accent">
+                {CONTACT_EMAIL}
+              </EmailLink>
+              {" · "}
+              <Link
+                href="#contact"
+                className="text-cream underline decoration-line underline-offset-2 transition-colors hover:decoration-accent"
+              >
+                Or request a consultation
+              </Link>
+              .
+            </p>
           </div>
         </header>
 

@@ -1,10 +1,11 @@
 # Journey Digital
 
-Church website studio in **Wilson, North Carolina**. Believers building for the Church — honest pricing, no template-farm vibe.
+Independent church website studio in **Wilson, North Carolina** (eastern NC beachhead). Believers building for the Church — honest pricing, no template-farm vibe.
 
 - **Live marketing site:** https://journeydigital.ai  
 - **Tagline vibe:** “A website worth the welcome you give on Sunday.”  
-- **Powered by** The Forge  
+- **Public email:** hello@journeydigital.ai (email only — no studio phone)  
+- **The Forge** is a quiet footer credit only on the public face
 
 This repository is the source of truth for the marketing site (Next.js) plus a reusable church site starter.
 
@@ -19,7 +20,7 @@ This repository is the source of truth for the marketing site (Next.js) plus a r
 | `content/incoming-html/` | Drop zone for existing HTML to port into Next.js |
 | `.env.example` | Consultation form / Resend env vars |
 
-Pricing on the marketing site starts around **$2,000**. Selected-work framing for Tabernacle Baptist Church is **preview in progress / first project underway** — not a finished case study (go-ahead pending).
+Pricing on the marketing site starts around **$2,000**. Selected work stays honestly empty — no Tabernacle, no invented case studies. Show a church when that church is ready.
 
 ## Local development
 
@@ -59,7 +60,7 @@ See `.env.example`. The same variables apply in local `.env.local` and on **Rail
 | `CONTACT_TO_EMAIL` | yes | Inbox that should receive leads (set with Michael — do not invent addresses in code) |
 | `CONTACT_FROM_EMAIL` | no | Defaults to Resend test sender until a verified domain is ready |
 
-**Mail note:** Zoho on `journeydigital.ai` is the planned long-term mail path. Contact address TBD with Michael. Until then, use Resend + env vars only — no hardcoded recipient addresses in source.
+**Mail note:** The public studio inbox is `hello@journeydigital.ai` (mailto on the site). Zoho on `journeydigital.ai` is the planned long-term mail path. Form delivery still uses Resend + `CONTACT_TO_EMAIL` — do not invent a phone number.
 
 ## Production deploy (Railway + Cloudflare)
 
@@ -92,4 +93,4 @@ Michael may provide HTML already built for the marketing site or a church. Drop 
 
 ## Scope of this scaffold
 
-Solid first incremental PR: marketing structure + consultation wiring + church kit. Full Tabernacle case study and proposal/SOW can follow once content and go-aheads are clear. The Journal lives at `/blog` (markdown in `content/blog/`).
+Solid first incremental PR: marketing structure + consultation wiring + church kit. Client case studies wait on go-ahead — do not invent them. The Journal lives at `/blog` (markdown in `content/blog/`).

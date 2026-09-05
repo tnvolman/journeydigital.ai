@@ -19,12 +19,12 @@ const serif = Source_Serif_4({
 export const metadata: Metadata = {
   title: "Church Website Design — Journey Digital | Wilson, NC",
   description:
-    "Journey Digital is a church website design studio in Wilson, NC. We build fast, mobile-first, custom websites for churches and ministries — made to be found.",
+    "Journey Digital is an independent church web studio in Wilson, NC — a beachhead for eastern North Carolina. Fast, mobile-first, custom websites for churches and ministries.",
   metadataBase: new URL("https://journeydigital.ai"),
   openGraph: {
     title: "Church Website Design — Journey Digital | Wilson, NC",
     description:
-      "Agency-grade craft for the Church — built with AI, priced to serve ministry.",
+      "An independent church web studio in Wilson, NC. Agency-grade craft, priced to serve ministry.",
     url: "https://journeydigital.ai",
     siteName: "Journey Digital",
     locale: "en_US",

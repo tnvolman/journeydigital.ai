@@ -1,7 +1,7 @@
 const items = [
   "Custom design",
   "Mobile-first",
-  "Built with AI",
+  "Wilson, NC",
   "Sermon archives",
   "Online giving",
   "Ministry pages",

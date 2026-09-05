@@ -23,17 +23,17 @@ const whatYouGet = [
   {
     n: "Design",
     title: "Made for your church",
-    body: "Design made for your church — no templates, no clip art. Built around your congregation.",
+    body: "No templates, no clip art. Built around your congregation — the ministries you already have, and the guest who will open the site on a phone.",
   },
   {
     n: "Build",
     title: "Powered by AI",
-    body: "Build powered by AI: agency-grade craft without agency-grade timelines or invoices.",
+    body: "Agency-grade work without agency-grade timelines or invoices.",
   },
   {
     n: "Steward",
     title: "Priced to serve",
-    body: "Stewardship pricing — priced to serve, not to squeeze.",
+    body: "We are believers building for the Church. Honest work at a fair price — no hidden fees, no padded retainers.",
   },
 ];
 
@@ -122,8 +122,9 @@ export default function WilsonChurchWebsitesPage() {
                 Based in Wilson, NC.
               </h2>
               <p className="text-[17px] leading-[1.78] text-silver">
-                We are a church web studio in Wilson, North Carolina — not a
-                rented template from somewhere else. Powered by The Forge.
+                We are based in Wilson, NC. We build for churches who want a
+                digital home the Church can depend on — leading these moments,
+                not lagging them. Powered by The Forge.
               </p>
             </Reveal>
             <Reveal>

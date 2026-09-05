@@ -56,8 +56,9 @@ export default function ChurchWebsiteNotATemplatePage() {
       lede={
         <>
           Most alternatives lists point to Subsplash, Tithely, ChurchSpring, or
-          REACHRIGHT — still template/platform. Journey Digital is a custom
-          church web studio. No templates, no clip art. From about $2,000.
+          REACHRIGHT — still template or platform lanes. Journey Digital is the
+          other path: a custom church web studio. No templates, no clip art.
+          From about $2,000.
         </>
       }
     >
@@ -144,7 +145,8 @@ export default function ChurchWebsiteNotATemplatePage() {
               than for a site designed around your congregation. Journey Digital
               is not another DIY builder. We are a custom church web studio in
               Wilson, North Carolina — believers building for the Church,
-              powered by The Forge.
+              powered by The Forge. If you have outgrown templates — or never
+              wanted one — start a project with us.
             </p>
           </Reveal>
         </div>

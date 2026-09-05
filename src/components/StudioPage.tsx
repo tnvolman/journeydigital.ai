@@ -39,7 +39,10 @@ export function StudioPage({
         {children}
 
         <RelatedStudioPages currentPath={currentPath} />
-        <ContactForm numbered={false} />
+        <ContactForm
+          numbered={false}
+          note="If budget is a concern, still reach out. We would rather hear from you."
+        />
       </main>
       <Footer />
     </>

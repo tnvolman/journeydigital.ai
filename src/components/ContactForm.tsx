@@ -9,7 +9,13 @@ import { Reveal } from "@/components/Reveal";
 
 const initial: ConsultationActionState = { ok: false, message: "" };
 
-export function ContactForm({ numbered = true }: { numbered?: boolean }) {
+export function ContactForm({
+  numbered = true,
+  note,
+}: {
+  numbered?: boolean;
+  note?: string;
+}) {
   const [state, action, pending] = useActionState(submitConsultation, initial);
 
   return (
@@ -27,6 +33,11 @@ export function ContactForm({ numbered = true }: { numbered?: boolean }) {
             Tell us about your church and what you&apos;re hoping for. We&apos;ll
             reach out within a day — no pressure, no sales pitch.
           </p>
+          {note ? (
+            <p className="mt-4 max-w-[40ch] text-[15px] leading-[1.7] text-muted">
+              {note}
+            </p>
+          ) : null}
         </Reveal>
 
         <Reveal>

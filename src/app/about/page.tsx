@@ -28,7 +28,7 @@ const whatWeDo = [
   {
     n: "Build",
     title: "AI-assisted",
-    body: "An AI-assisted build: faster than a traditional shop, still custom work.",
+    body: "An AI-assisted build for agency-grade work without agency-grade timelines or invoices.",
   },
   {
     n: "Mobile",
@@ -143,7 +143,9 @@ export default function AboutPage() {
                   </div>
                   <p className="text-[17px] leading-[1.78] text-silver">
                     Churches that want more than a DIY template and less than a
-                    big agency retainer — especially eastern North Carolina.
+                    big agency retainer — especially congregations in and around
+                    eastern North Carolina who need a site worth the welcome they
+                    give on Sunday.
                   </p>
                 </div>
                 <div className="bg-bg px-8 py-10 md:px-11">
@@ -151,9 +153,11 @@ export default function AboutPage() {
                     Who it&apos;s not for
                   </div>
                   <p className="text-[17px] leading-[1.78] text-silver">
-                    SaaS stock-theme shoppers; secular product-design
-                    consultancies; anyone looking for the NZ Journey Digital
-                    firm.
+                    If you want a SaaS stock theme you can rearrange yourself,
+                    we are not the shop. If you need a secular product-design
+                    consultancy, we are not that either. And if you were looking
+                    for the Journey Digital firm in New Zealand, that is a
+                    different company.
                   </p>
                 </div>
               </div>
@@ -162,7 +166,7 @@ export default function AboutPage() {
         </section>
 
         <section className="bg-bg-2 px-6 py-20 md:px-8">
-          <div className="mx-auto max-w-[680px] text-center">
+          <div className="mx-auto max-w-[640px] text-center">
             <Reveal>
               <div className="mb-5 text-xs font-semibold tracking-[0.22em] text-accent uppercase">
                 Plain pricing
@@ -172,7 +176,14 @@ export default function AboutPage() {
               </div>
               <p className="mt-[22px] text-lg text-fog">
                 A complete custom church website. No hidden fees, no padded
-                retainers.
+                retainers. We&apos;ll tell you honestly what you need and what
+                you don&apos;t.
+              </p>
+              <p className="mt-6 text-[16px] leading-[1.78] text-fog">
+                If about $2,000 feels like more than your church can carry
+                right now, still reach out. We would rather hear from you than
+                have a pastor stay quiet because the number felt too big. We
+                will say honestly what we can work out.
               </p>
             </Reveal>
           </div>

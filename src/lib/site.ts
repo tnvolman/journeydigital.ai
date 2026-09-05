@@ -5,6 +5,6 @@ export const studioPages = [
   { href: "/wilson-nc-church-websites", label: "Wilson church websites" },
   {
     href: "/church-website-not-a-template",
-    label: "Not a template",
+    label: "Custom, not a template",
   },
 ] as const;

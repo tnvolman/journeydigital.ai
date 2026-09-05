@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
+import { PASTORAL_AI } from "@/lib/site";
 
 const cells = [
   {
@@ -9,8 +10,8 @@ const cells = [
   },
   {
     n: "Build",
-    title: "Powered by AI",
-    body: "We build faster and sharper than a traditional shop — agency-grade work, delivered without agency-grade timelines or invoices.",
+    title: "Built with care",
+    body: PASTORAL_AI,
   },
   {
     n: "Steward",

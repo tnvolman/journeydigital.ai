@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { studioPages } from "@/lib/site";
+import { EmailLink } from "@/components/EmailLink";
+import { CONTACT_EMAIL, studioPages } from "@/lib/site";
 
 const links = [
   { href: "/#services", label: "Services" },
   { href: "/#work", label: "Work" },
   { href: "/#pricing", label: "Pricing" },
   { href: "/blog", label: "Journal" },
-  { href: "/#contact", label: "Start a project" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Footer() {
@@ -31,7 +32,13 @@ export function Footer() {
               build it.&rdquo; — Psalm 127:1
             </p>
             <p className="mt-4 text-[14px] text-fog">
-              Wilson, North Carolina · Powered by The Forge
+              Independent church studio · Wilson, North Carolina
+            </p>
+            <p className="mt-2 text-[14px] text-fog">
+              Eastern North Carolina beachhead ·{" "}
+              <EmailLink className="text-cream underline decoration-line underline-offset-2 transition-colors hover:decoration-accent">
+                {CONTACT_EMAIL}
+              </EmailLink>
             </p>
           </div>
 
@@ -48,22 +55,24 @@ export function Footer() {
               ))}
             </div>
             <div className="flex flex-col gap-2.5 text-sm text-fog">
-              {studioPages.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="transition-colors hover:text-cream"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {studioPages
+                .filter((link) => link.href !== "/contact")
+                .map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="transition-colors hover:text-cream"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
             </div>
           </div>
         </div>
 
         <div className="mt-10 flex flex-wrap justify-between gap-3 border-t border-line pt-6 text-[12.5px] tracking-[0.04em] text-muted">
           <span>© {new Date().getFullYear()} Journey Digital</span>
-          <span>Digital presence. Kingdom purpose.</span>
+          <span>The Forge</span>
         </div>
       </div>
     </footer>

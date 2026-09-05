@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import { LaunchWeek } from "@/components/LaunchWeek";
 import { PricingCare } from "@/components/PricingCare";
 import { Reveal } from "@/components/Reveal";
 import { StudioPage } from "@/components/StudioPage";
-import { SITE_URL } from "@/lib/site";
+import { PASTORAL_AI, SITE_URL } from "@/lib/site";
 
 const title = "Journey Digital | Church web studio in Wilson, NC";
 const description =
-  "Journey Digital is a church web studio in Wilson, North Carolina. Custom church websites — service times, sermons, ministries, and a visit page a stranger can use on a phone — from about $2,000. Powered by The Forge.";
+  "Journey Digital is an independent church web studio in Wilson, North Carolina — a beachhead for eastern North Carolina. Custom church websites — service times, sermons, ministries, and a visit page a stranger can use on a phone — from about $2,000.";
 
 export const metadata: Metadata = {
   title,
@@ -28,8 +29,8 @@ const whatWeDo = [
   },
   {
     n: "Build",
-    title: "AI-assisted",
-    body: "An AI-assisted build for agency-grade work without agency-grade timelines or invoices.",
+    title: "Built with care",
+    body: PASTORAL_AI,
   },
   {
     n: "Mobile",
@@ -69,11 +70,11 @@ export default function AboutPage() {
         currentPath="/about"
         lede={
           <>
-            Journey Digital is a church web studio in Wilson, North Carolina. We
-            design and build custom church websites — service times, sermons,
-            ministries, and a visit page a stranger can use on a phone — from
-            about $2,000. We are believers building for the Church. We are
-            powered by The Forge.
+            Journey Digital is an independent church web studio in Wilson, North
+            Carolina — serving congregations across eastern North Carolina
+            first. We design and build custom church websites — service times,
+            sermons, ministries, and a visit page a stranger can use on a phone
+            — from about $2,000. We are believers building for the Church.
           </>
         }
       >
@@ -134,6 +135,8 @@ export default function AboutPage() {
           </div>
         </section>
 
+        <LaunchWeek />
+
         <section className="px-6 py-20 md:px-8">
           <div className="mx-auto max-w-[1140px]">
             <Reveal>
@@ -146,7 +149,8 @@ export default function AboutPage() {
                     Churches that want more than a DIY template and less than a
                     big agency retainer — especially congregations in and around
                     eastern North Carolina who need a site worth the welcome they
-                    give on Sunday.
+                    give on Sunday. Wilson is home. The rest of the region is
+                    the beachhead.
                   </p>
                 </div>
                 <div className="bg-bg px-8 py-10 md:px-11">

@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { EmailLink } from "@/components/EmailLink";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -13,7 +15,7 @@ export function Hero() {
       <div className="mx-auto grid w-full max-w-[1140px] grid-cols-1 items-center gap-12 px-6 md:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-[60px]">
         <div className="text-center lg:text-left">
           <span className="mb-7 inline-flex items-center gap-2.5 text-xs font-semibold tracking-[0.24em] text-accent uppercase before:block before:h-px before:w-7 before:bg-accent">
-            A church web studio
+            Independent church studio · Wilson, NC
           </span>
           <h1 className="font-serif text-[clamp(44px,6.4vw,82px)] leading-[1.08] font-semibold tracking-[-0.03em] text-cream">
             Digital presence.
@@ -22,9 +24,10 @@ export function Hero() {
             </em>
           </h1>
           <p className="mx-auto mt-7 mb-10 max-w-[46ch] text-[clamp(17px,1.9vw,20px)] text-fog lg:mx-0">
-            We design and build digital homes for the Church — sleek, fast, and
-            made to be found. Agency-grade craft, built with AI, priced to serve
-            ministry.
+            We design and build digital homes for the Church from Wilson,
+            North Carolina — a beachhead for congregations across eastern
+            North Carolina. Sleek, fast, and made to be found. Agency-grade
+            craft, priced to serve ministry.
           </p>
           <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
             <a
@@ -33,12 +36,9 @@ export function Hero() {
             >
               Request a consultation
             </a>
-            <a
-              href="#work"
-              className="inline-flex items-center border border-line px-7 py-4 text-[15px] font-semibold text-cream transition hover:-translate-y-0.5 hover:border-fog"
-            >
-              View our work
-            </a>
+            <EmailLink className="inline-flex items-center border border-line px-7 py-4 text-[15px] font-semibold text-cream transition hover:-translate-y-0.5 hover:border-fog">
+              Email {CONTACT_EMAIL}
+            </EmailLink>
           </div>
         </div>
 

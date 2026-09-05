@@ -11,6 +11,7 @@ const links = [
   { href: "/#pricing", label: "Pricing" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Journal" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Nav() {
@@ -18,6 +19,7 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const onJournal = pathname === "/blog" || pathname.startsWith("/blog/");
   const onAbout = pathname === "/about";
+  const onContact = pathname === "/contact";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -54,7 +56,8 @@ export function Nav() {
           {links.map((link) => {
             const active =
               (link.href === "/blog" && onJournal) ||
-              (link.href === "/about" && onAbout);
+              (link.href === "/about" && onAbout) ||
+              (link.href === "/contact" && onContact);
             return (
               <Link
                 key={link.href}
@@ -70,7 +73,7 @@ export function Nav() {
         </div>
 
         <Link
-          href="/#contact"
+          href="/contact"
           className="border border-line px-4 py-2.5 text-[13px] tracking-[0.08em] text-cream uppercase transition-colors hover:border-accent hover:text-accent md:px-5"
         >
           Start a project

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import { LaunchWeek } from "@/components/LaunchWeek";
 import { PricingCare } from "@/components/PricingCare";
 import { Reveal } from "@/components/Reveal";
 import { StudioPage } from "@/components/StudioPage";
-import { SITE_URL } from "@/lib/site";
+import { PASTORAL_AI, SITE_URL } from "@/lib/site";
 
 const title = "Church website without another template builder | Journey Digital";
 const description =
-  "Most Faithlife Sites alternatives are still a template or a platform. Journey Digital is a custom church web studio — no templates, no clip art — from about $2,000.";
+  "Most Faithlife Sites alternatives are still a template or a platform. Journey Digital is an independent custom church web studio in Wilson, NC — no templates, no clip art — from about $2,000.";
 
 export const metadata: Metadata = {
   title,
@@ -58,8 +59,8 @@ export default function ChurchWebsiteNotATemplatePage() {
         <>
           Most alternatives lists point to Subsplash, Tithely, ChurchSpring, or
           REACHRIGHT — still template or platform lanes. Journey Digital is the
-          other path: a custom church web studio. No templates, no clip art.
-          From about $2,000.
+          other path: an independent custom church web studio in Wilson, North
+          Carolina. No templates, no clip art. From about $2,000.
         </>
       }
     >
@@ -131,6 +132,8 @@ export default function ChurchWebsiteNotATemplatePage() {
         </div>
       </section>
 
+      <LaunchWeek />
+
       <section className="px-6 py-20 md:px-8">
         <div className="mx-auto max-w-[720px]">
           <Reveal>
@@ -144,9 +147,9 @@ export default function ChurchWebsiteNotATemplatePage() {
               Stay on a builder if you want to drag blocks yourself, live inside
               a stock theme, or pay a monthly platform fee for the software more
               than for a site designed around your congregation. Journey Digital
-              is not another DIY builder. We are a custom church web studio in
-              Wilson, North Carolina — believers building for the Church,
-              powered by The Forge. If you have outgrown templates — or never
+              is not another DIY builder. We are an independent custom church
+              web studio in Wilson, North Carolina — believers building for the
+              Church. {PASTORAL_AI} If you have outgrown templates — or never
               wanted one — start a project with us.
             </p>
             <PricingCare className="mt-6 text-[16px] leading-[1.78] text-fog" />

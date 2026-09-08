@@ -1,6 +1,6 @@
 ---
 title: How Much Does a Church Website Cost?
-description: Church website costs range from $500 to $20,000+. Learn what drives the price and how Journey Digital delivers agency-grade quality priced to serve ministry budgets.
+description: Church websites run from DIY templates to $20,000+ agencies. Journey Digital builds complete custom church sites from $2,000 — AI-assisted studio work, no agency overhead.
 date: "2026-06-18"
 ---
 
@@ -10,15 +10,15 @@ If you've started searching for a church website, you've probably seen quotes ra
 
 ## What you're usually paying for
 
-### DIY website builders ($0–$50/month)
+### DIY / template builders ($0–$50/month)
 
-Squarespace, Wix, and similar tools can get a basic site up fast. The tradeoff: you're doing all the work yourself, the design is template-bound, and the result often looks like every other church on the internet. There's no shame in starting here — but there's a ceiling.
+Squarespace, Wix, and similar tools can get a basic site up fast. You're doing all the work yourself, the design is template-bound, and the result often looks like every other church on the internet. There's no shame in starting here — but there's a ceiling.
 
-### Freelancers ($500–$5,000)
+### Custom church studio — Journey's lane (from $2,000)
 
-A skilled freelancer can build something genuinely custom. Quality varies enormously. The best freelancers bring real design sense and technical skill; the worst deliver a WordPress theme with your logo dropped in. Ask to see work they've done for organizations like yours.
+This is where Journey Digital lives. A small studio builds you a complete, custom church website — design, development, mobile, sermon archives, forms, maps, and launch — without the account-manager tax of a big agency. We use AI-assisted workflows so the work stays careful and the price stays honest. Not a template with your logo dropped in. Yours.
 
-### Agencies ($5,000–$20,000+)
+### Full-service agencies ($5,000–$20,000+)
 
 Full-service digital agencies bring teams, process, and polish. You're also paying for overhead: account managers, project coordinators, and office space. For many churches, that overhead doesn't translate to a better website — it just translates to a bigger invoice.
 
@@ -47,4 +47,4 @@ A good vendor answers all five without hesitation.
 
 ---
 
-If you're a church in the $1,500–$5,000 range looking for something that actually represents your congregation — we'd love to talk. [Start a conversation.](/#contact)
+If you want a site that actually represents your congregation, we would love to talk. And if $2,000 is more than your church can put toward it right now, still [write us](/#contact). We would rather hear from you than have a pastor stay quiet because the number felt too big. We will tell you honestly what we can work out.

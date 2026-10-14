@@ -1,10 +1,10 @@
 # Journey Digital
 
-Independent church website studio in **Wilson, North Carolina** (eastern NC beachhead). Believers building for the Church — honest pricing, no template-farm vibe.
+Small, owner-run church website studio in **Wilson, North Carolina** (eastern NC beachhead). Believers building for the Church — honest pricing, no template-farm vibe.
 
 - **Live marketing site:** https://journeydigital.ai  
 - **Tagline vibe:** “A website worth the welcome you give on Sunday.”  
-- **Public email:** hello@journeydigital.ai (email only — no studio phone)  
+- **Public email:** sales@journeydigital.ai (email only — no studio phone)  
 - **The Forge** is a quiet footer credit only on the public face
 
 This repository is the source of truth for the marketing site (Next.js) plus a reusable church site starter.
@@ -60,7 +60,7 @@ See `.env.example`. The same variables apply in local `.env.local` and on **Rail
 | `CONTACT_TO_EMAIL` | yes | Inbox that should receive leads (set with Michael — do not invent addresses in code) |
 | `CONTACT_FROM_EMAIL` | no | Defaults to Resend test sender until a verified domain is ready |
 
-**Mail note:** The public studio inbox is `hello@journeydigital.ai` (mailto on the site). Zoho on `journeydigital.ai` is the planned long-term mail path. Form delivery still uses Resend + `CONTACT_TO_EMAIL` — do not invent a phone number.
+**Mail note:** The public studio inbox is `sales@journeydigital.ai` (mailto on the site). Zoho on `journeydigital.ai` is the planned long-term mail path. Form delivery still uses Resend + `CONTACT_TO_EMAIL` — do not invent a phone number.
 
 ## Production deploy (Railway + Cloudflare)
 

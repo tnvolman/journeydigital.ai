@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const links = [
   { href: "/#services", label: "Services" },
@@ -20,6 +20,53 @@ export function Nav() {
   const onJournal = pathname === "/blog" || pathname.startsWith("/blog/");
   const onAbout = pathname === "/about";
   const onContact = pathname === "/contact";
+  const [open, setOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const closeMenu = useCallback((returnFocus: boolean) => {
+    setOpen(false);
+    if (returnFocus) toggleRef.current?.focus();
+  }, []);
+
+  // Close on route change
+  const [lastPath, setLastPath] = useState(pathname);
+  if (lastPath !== pathname) {
+    setLastPath(pathname);
+    setOpen(false);
+  }
+
+  // Escape closes; Tab is trapped within toggle + menu while open
+  useEffect(() => {
+    if (!open) return;
+    const firstLink = menuRef.current?.querySelector<HTMLElement>("a");
+    firstLink?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeMenu(true);
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const items = [
+        toggleRef.current,
+        ...Array.from(menuRef.current?.querySelectorAll<HTMLElement>("a") ?? []),
+      ].filter(Boolean) as HTMLElement[];
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      const idx = items.indexOf(document.activeElement as HTMLElement);
+      if (e.shiftKey && (document.activeElement === first || idx === -1)) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && (document.activeElement === last || idx === -1)) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open, closeMenu]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -72,12 +119,50 @@ export function Nav() {
           })}
         </div>
 
+        <div className="flex items-center gap-3">
         <Link
           href="/contact"
-          className="border border-line px-4 py-2.5 text-[13px] tracking-[0.08em] text-cream uppercase transition-colors hover:border-accent hover:text-accent md:px-5"
+          className="hidden border border-line px-4 py-2.5 sm:inline-block text-[13px] tracking-[0.08em] text-cream uppercase transition-colors hover:border-accent hover:text-accent md:px-5"
         >
           Start a project
         </Link>
+        <button
+          ref={toggleRef}
+          type="button"
+          className="flex h-11 w-11 items-center justify-center border border-line text-cream md:hidden"
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          onClick={() => (open ? closeMenu(false) : setOpen(true))}
+        >
+          <span aria-hidden="true" className="relative block h-3 w-5">
+            <span className={`absolute left-0 h-px w-5 bg-current transition-transform ${open ? "top-1.5 rotate-45" : "top-0"}`} />
+            <span className={`absolute left-0 top-1.5 h-px w-5 bg-current ${open ? "opacity-0" : ""}`} />
+            <span className={`absolute left-0 h-px w-5 bg-current transition-transform ${open ? "top-1.5 -rotate-45" : "top-3"}`} />
+          </span>
+        </button>
+        </div>
+      </div>
+
+      <div
+        id="mobile-menu"
+        ref={menuRef}
+        hidden={!open}
+        className="border-t border-line bg-[#111] px-6 pb-6 md:hidden"
+      >
+        <ul className="flex flex-col">
+          {links.map((link) => (
+            <li key={link.href} className="border-b border-line">
+              <Link
+                href={link.href}
+                className="block py-4 text-[15px] tracking-[0.02em] text-cream"
+                onClick={() => closeMenu(false)}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
   );

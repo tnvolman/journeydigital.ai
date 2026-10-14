@@ -32,7 +32,7 @@ export function Footer() {
               build it.&rdquo; — Psalm 127:1
             </p>
             <p className="mt-4 text-[14px] text-fog">
-              Independent church studio · Wilson, North Carolina
+              Small, owner-run church web studio · Wilson, North Carolina
             </p>
             <p className="mt-2 text-[14px] text-fog">
               Eastern North Carolina beachhead ·{" "}

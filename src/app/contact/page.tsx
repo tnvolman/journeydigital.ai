@@ -8,7 +8,7 @@ import { CONTACT_EMAIL, SITE_URL } from "@/lib/site";
 
 const title = "Contact Journey Digital | Wilson, NC church web studio";
 const description =
-  "Email hello@journeydigital.ai or request a free consultation. Journey Digital is an independent church web studio in Wilson, North Carolina.";
+  "Email sales@journeydigital.ai or request a free consultation. Journey Digital is a small, owner-run church web studio in Wilson, North Carolina.";
 
 export const metadata: Metadata = {
   title,
@@ -36,7 +36,7 @@ export default function ContactPage() {
               Write the studio.
             </h1>
             <p className="max-w-[54ch] text-lg text-fog">
-              Journey Digital is an independent church web studio in Wilson,
+              Journey Digital is a small, owner-run church web studio in Wilson,
               North Carolina. Email is the fastest path. The consultation form
               is here if you would rather send details that way.
             </p>

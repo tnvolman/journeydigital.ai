@@ -34,7 +34,7 @@ export function Deliverables({
   numbered?: boolean;
 }) {
   return (
-    <section id="deliverables" className="relative py-[110px]">
+    <section id="deliverables" className="relative pt-[40px] pb-[80px] md:py-[110px]">
       <div className="mx-auto max-w-[1140px] px-6 md:px-8">
         <Reveal>
           <div className="mb-5 flex items-center gap-3 text-xs font-semibold tracking-[0.22em] text-accent uppercase">

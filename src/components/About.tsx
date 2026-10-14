@@ -26,7 +26,7 @@ export function About() {
               Wilson, North Carolina
             </Link>
             {" — "}
-            an independent church web studio, serving eastern North Carolina
+            a small, owner-run church web studio, serving eastern North Carolina
             first.
             <br />
             <br />

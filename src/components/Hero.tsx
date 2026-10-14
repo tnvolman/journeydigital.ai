@@ -14,8 +14,10 @@ export function Hero() {
     >
       <div className="mx-auto grid w-full max-w-[1140px] grid-cols-1 items-center gap-12 px-6 md:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-[60px]">
         <div className="text-center lg:text-left">
-          <span className="mb-7 inline-flex items-center gap-2.5 text-xs font-semibold tracking-[0.24em] text-accent uppercase before:block before:h-px before:w-7 before:bg-accent">
-            Independent church studio · Wilson, NC
+          <span className="mb-7 inline-flex flex-col items-center gap-1.5 text-[11px] font-semibold tracking-[0.16em] text-accent uppercase sm:flex-row sm:gap-2.5 sm:text-xs sm:tracking-[0.24em] sm:before:block sm:before:h-px sm:before:w-7 sm:before:bg-accent">
+            <span>Small, owner-run church web studio</span>
+            <span aria-hidden="true" className="hidden sm:inline">·</span>
+            <span className="whitespace-nowrap">Wilson,{"\u00a0"}NC</span>
           </span>
           <h1 className="font-serif text-[clamp(44px,6.4vw,82px)] leading-[1.08] font-semibold tracking-[-0.03em] text-cream">
             Digital presence.

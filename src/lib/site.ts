@@ -1,7 +1,7 @@
 export const SITE_URL = "https://journeydigital.ai";
 
 /** Public, email-only studio inbox. Do not invent a phone number. */
-export const CONTACT_EMAIL = "hello@journeydigital.ai";
+export const CONTACT_EMAIL = "sales@journeydigital.ai";
 export const CONTACT_MAILTO = `mailto:${CONTACT_EMAIL}`;
 
 /** The one pastoral-safe AI line. Use this wording — do not invent variants. */

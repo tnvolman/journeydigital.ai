@@ -7,7 +7,7 @@ import { CONTACT_EMAIL, PASTORAL_AI, SITE_URL } from "@/lib/site";
 
 const title = "Custom church websites in Wilson, NC | Journey Digital";
 const description =
-  "Journey Digital is an independent church web studio in Wilson, North Carolina — a beachhead for eastern North Carolina. Custom design, mobile-first church websites — service times, sermons, ministries, and a visit page that works on a phone — from about $2,000.";
+  "Journey Digital is a small, owner-run church web studio in Wilson, North Carolina — a beachhead for eastern North Carolina. Custom design, mobile-first church websites — service times, sermons, ministries, and a visit page that works on a phone — from about $2,000.";
 
 export const metadata: Metadata = {
   title,
@@ -82,7 +82,7 @@ export default function WilsonChurchWebsitesPage() {
         lede={
           <>
             If your church needs a site built around your congregation — not a
-            rented template — Journey Digital is an independent church web
+            rented template — Journey Digital is a small, owner-run church web
             studio in Wilson, North Carolina. This is the beachhead: Wilson
             first, then congregations across eastern North Carolina. Custom
             design, mobile-first, from about $2,000. Service times, sermons,

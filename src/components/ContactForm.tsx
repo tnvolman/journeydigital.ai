@@ -5,7 +5,9 @@ import {
   submitConsultation,
   type ConsultationActionState,
 } from "@/app/actions/consultation";
+import { EmailLink } from "@/components/EmailLink";
 import { Reveal } from "@/components/Reveal";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 const initial: ConsultationActionState = { ok: false, message: "" };
 
@@ -32,6 +34,13 @@ export function ContactForm({
           <p className="max-w-[40ch] text-[17px] text-fog">
             Tell us about your church and what you&apos;re hoping for. We&apos;ll
             reach out within a day — no pressure, no sales pitch.
+          </p>
+          <p className="mt-5 max-w-[40ch] text-[16px] leading-[1.7] text-silver">
+            Prefer email? Write{" "}
+            <EmailLink className="text-cream underline decoration-line underline-offset-2 transition-colors hover:decoration-accent">
+              {CONTACT_EMAIL}
+            </EmailLink>
+            . That is the studio inbox — email only.
           </p>
           {note ? (
             <p className="mt-4 max-w-[40ch] text-[15px] leading-[1.7] text-muted">
@@ -71,7 +80,7 @@ export function ContactForm({
               name="phone"
               type="tel"
               label="Phone (optional)"
-              placeholder="(252) 000-0000"
+              placeholder="Your number, if you prefer a call back"
               autoComplete="tel"
             />
 

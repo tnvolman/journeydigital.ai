@@ -30,7 +30,7 @@ export function Work() {
                   when the church is ready.
                 </p>
                 <Link
-                  href="/#contact"
+                  href="/contact"
                   className="inline-flex gap-2 border-b border-accent pb-1 text-[15px] font-semibold text-cream transition-[gap] hover:gap-3.5"
                 >
                   Start a project →

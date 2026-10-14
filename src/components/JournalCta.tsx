@@ -1,3 +1,5 @@
+import { EmailLink } from "@/components/EmailLink";
+import { CONTACT_EMAIL } from "@/lib/site";
 import Link from "next/link";
 
 export function JournalCta() {
@@ -12,14 +14,19 @@ export function JournalCta() {
         </h2>
         <p className="mb-8 text-[17px] text-fog">
           Tell us about your church. We&apos;ll reach out within a day — no
-          pressure, no sales pitch.
+          pressure, no sales pitch. Or email {CONTACT_EMAIL}.
         </p>
-        <Link
-          href="/#contact"
-          className="inline-flex items-center bg-accent px-[30px] py-4 text-[15px] font-semibold text-[#141414] transition hover:-translate-y-0.5 hover:bg-cream"
-        >
-          Request a consultation
-        </Link>
+        <div className="flex flex-wrap justify-center gap-4">
+          <Link
+            href="/contact"
+            className="inline-flex items-center bg-accent px-[30px] py-4 text-[15px] font-semibold text-[#141414] transition hover:-translate-y-0.5 hover:bg-cream"
+          >
+            Request a consultation
+          </Link>
+          <EmailLink className="inline-flex items-center border border-line px-[30px] py-4 text-[15px] font-semibold text-cream transition hover:-translate-y-0.5 hover:border-fog">
+            Email the studio
+          </EmailLink>
+        </div>
       </div>
     </section>
   );

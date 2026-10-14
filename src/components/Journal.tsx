@@ -56,14 +56,6 @@ export function Journal() {
           </Reveal>
         ) : null}
 
-        <Reveal className="mt-8">
-          <Link
-            href="/blog"
-            className="inline-flex gap-2 border-b border-accent pb-1 text-[15px] font-semibold text-cream transition-[gap] hover:gap-3.5"
-          >
-            All Journal posts →
-          </Link>
-        </Reveal>
       </div>
     </section>
   );

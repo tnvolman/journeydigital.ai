@@ -1,13 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
-import { studioPages } from "@/lib/site";
+import { EmailLink } from "@/components/EmailLink";
+import { CONTACT_EMAIL } from "@/lib/site";
 
-const links = [
-  { href: "/#services", label: "Services" },
-  { href: "/#work", label: "Work" },
-  { href: "/#pricing", label: "Pricing" },
-  { href: "/blog", label: "Journal" },
-  { href: "/#contact", label: "Start a project" },
+const columns = [
+  [
+    { href: "/#services", label: "Services" },
+    { href: "/#work", label: "Work" },
+    { href: "/#pricing", label: "Pricing" },
+    { href: "/blog", label: "Journal" },
+  ],
+  [
+    { href: "/about", label: "About" },
+    { href: "/wilson-nc-church-websites", label: "Wilson church websites" },
+    { href: "/church-website-not-a-template", label: "Why not a template" },
+    { href: "/contact", label: "Contact" },
+  ],
 ];
 
 export function Footer() {
@@ -31,39 +39,37 @@ export function Footer() {
               build it.&rdquo; — Psalm 127:1
             </p>
             <p className="mt-4 text-[14px] text-fog">
-              Wilson, North Carolina · Powered by The Forge
+              Small, owner-run church web studio · Wilson, North Carolina
+            </p>
+            <p className="mt-2 text-[14px] text-fog">
+              Eastern North Carolina beachhead ·{" "}
+              <EmailLink className="text-cream underline decoration-line underline-offset-2 transition-colors hover:decoration-accent">
+                {CONTACT_EMAIL}
+              </EmailLink>
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-x-16 gap-y-8">
-            <div className="flex flex-col gap-2.5 text-sm text-fog">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="transition-colors hover:text-cream"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-            <div className="flex flex-col gap-2.5 text-sm text-fog">
-              {studioPages.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="transition-colors hover:text-cream"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-16 gap-y-8">
+            {columns.map((col, i) => (
+              <ul key={i} className="flex flex-col gap-2.5 text-sm text-fog">
+                {col.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="transition-colors hover:text-cream"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </nav>
         </div>
 
         <div className="mt-10 flex flex-wrap justify-between gap-3 border-t border-line pt-6 text-[12.5px] tracking-[0.04em] text-muted">
           <span>© {new Date().getFullYear()} Journey Digital</span>
-          <span>Digital presence. Kingdom purpose.</span>
+          <span>The Forge</span>
         </div>
       </div>
     </footer>

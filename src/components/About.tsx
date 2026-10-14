@@ -25,18 +25,13 @@ export function About() {
             <Link href="/wilson-nc-church-websites" className="text-cream underline decoration-line underline-offset-2 transition-colors hover:decoration-accent">
               Wilson, North Carolina
             </Link>
-            <br />
-            A church web studio, powered by The Forge.
+            {" — "}
+            a small, owner-run church web studio, serving eastern North Carolina
+            first.
             <br />
             <br />
             We exist to make sure the Church is never left behind in the digital
             age — leading these moments, not lagging them.
-            <Link
-              href="/about"
-              className="mt-6 flex w-fit gap-2 border-b border-accent pb-1 text-[15px] font-semibold text-cream transition-[gap] hover:gap-3.5"
-            >
-              Who is Journey Digital? →
-            </Link>
           </Reveal>
         </div>
       </section>

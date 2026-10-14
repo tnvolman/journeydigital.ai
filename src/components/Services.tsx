@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
+import { PASTORAL_AI } from "@/lib/site";
 
 const cells = [
   {
@@ -9,8 +9,8 @@ const cells = [
   },
   {
     n: "Build",
-    title: "Powered by AI",
-    body: "We build faster and sharper than a traditional shop — agency-grade work, delivered without agency-grade timelines or invoices.",
+    title: "Built with care",
+    body: PASTORAL_AI,
   },
   {
     n: "Steward",
@@ -21,7 +21,7 @@ const cells = [
 
 export function Services() {
   return (
-    <section id="services" className="relative py-[110px]">
+    <section id="services" className="relative pt-[80px] pb-[40px] md:py-[110px]">
       <div className="mx-auto max-w-[1140px] px-6 md:px-8">
         <Reveal>
           <div className="mb-5 flex items-center gap-3 text-xs font-semibold tracking-[0.22em] text-accent uppercase">
@@ -49,14 +49,6 @@ export function Services() {
               </div>
             ))}
           </div>
-        </Reveal>
-        <Reveal className="mt-10">
-          <Link
-            href="/church-website-not-a-template"
-            className="inline-flex gap-2 border-b border-accent pb-1 text-[15px] font-semibold text-cream transition-[gap] hover:gap-3.5"
-          >
-            Why not another template builder →
-          </Link>
         </Reveal>
       </div>
     </section>

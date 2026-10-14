@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { PASTORAL_AI } from "@/lib/site";
 

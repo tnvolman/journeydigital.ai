@@ -68,7 +68,15 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-wrap justify-between gap-3 border-t border-line pt-6 text-[12.5px] tracking-[0.04em] text-muted">
-          <span>© {new Date().getFullYear()} Journey Digital</span>
+          <span className="flex flex-wrap gap-x-4 gap-y-2">
+            <span>© {new Date().getFullYear()} Journey Digital</span>
+            <Link href="/privacy" className="transition-colors hover:text-fog">
+              Privacy
+            </Link>
+            <Link href="/terms" className="transition-colors hover:text-fog">
+              Terms
+            </Link>
+          </span>
           <span>The Forge</span>
         </div>
       </div>

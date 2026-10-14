@@ -14,7 +14,7 @@ If you've started searching for a church website, you've probably seen quotes ra
 
 Squarespace, Wix, and similar tools can get a basic site up fast. You're doing all the work yourself, the design is template-bound, and the result often looks like every other church on the internet. There's no shame in starting here — but there's a ceiling.
 
-### Custom church studio — Journey's lane (from $2,000)
+### Custom church web studio — Journey's lane (from $2,000)
 
 This is where Journey Digital lives. A small studio builds you a complete, custom church website — design, development, mobile, sermon archives, forms, maps, and launch — without the account-manager tax of a big agency. We use AI-assisted workflows so the work stays careful and the price stays honest. Not a template with your logo dropped in. Yours.
 

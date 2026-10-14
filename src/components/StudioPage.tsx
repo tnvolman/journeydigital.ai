@@ -13,6 +13,7 @@ export function StudioPage({
   children,
   currentPath,
   polished = false,
+  afterContact,
 }: {
   eyebrow: string;
   title: ReactNode;
@@ -20,6 +21,7 @@ export function StudioPage({
   children: ReactNode;
   currentPath: string;
   polished?: boolean;
+  afterContact?: ReactNode;
 }) {
   return (
     <>
@@ -91,6 +93,7 @@ export function StudioPage({
           numbered={false}
           note="If budget is a concern, still reach out. We would rather hear from you."
         />
+        {afterContact}
       </main>
       <Footer />
     </>
@@ -126,6 +129,7 @@ const studioBlurbs: Record<string, string> = {
   "/about": "Who we are and how the studio works.",
   "/wilson-nc-church-websites": "Custom church websites, based in Wilson, NC.",
   "/church-website-not-a-template": "Why we build custom instead of templates.",
+  "/church-website-under-3000": "Custom studio work from $2,000, not a monthly SaaS.",
   "/contact": "Email us or request a free consultation.",
 };
 
@@ -138,7 +142,7 @@ function RelatedStudioCards({ currentPath }: { currentPath: string }) {
         <div className="mb-8 text-xs font-semibold tracking-[0.22em] text-accent uppercase">
           More from the studio
         </div>
-        <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-md border border-line bg-line md:grid-cols-3">
+        <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-md border border-line bg-line md:grid-cols-2">
           {others.map((page) => (
             <li key={page.href} className="bg-bg">
               <Link

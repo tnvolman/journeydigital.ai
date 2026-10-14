@@ -23,6 +23,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
+    ...["/privacy", "/terms"].map((href) => ({
+      url: `${SITE_URL}${href}`,
+      lastModified: new Date("2026-10-14"),
+      changeFrequency: "yearly" as const,
+      priority: 0.5,
+    })),
     {
       url: `${SITE_URL}/blog`,
       lastModified: new Date("2026-09-05"),

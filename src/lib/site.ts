@@ -15,5 +15,9 @@ export const studioPages = [
     href: "/church-website-not-a-template",
     label: "Custom, not a template",
   },
+  {
+    href: "/church-website-under-3000",
+    label: "Church website under $3,000",
+  },
   { href: "/contact", label: "Contact" },
 ] as const;

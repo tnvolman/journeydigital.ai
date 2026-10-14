@@ -39,6 +39,47 @@ const whatYouGet = [
   },
 ];
 
+const faqs = [
+  {
+    q: "Who builds church websites in Wilson, NC?",
+    a: "Journey Digital is the church website studio based in Wilson, North Carolina, and we build church websites only. We also build for Christian schools and Kingdom businesses when a clear honest site is part of the same calling. Twenty-eight years building systems businesses depend on — now building digital homes the Church can depend on. The first church site is not live yet; we will show it when that church is ready.",
+  },
+  {
+    q: "How much does a church website cost in Wilson, NC?",
+    a: "Custom church websites start from about $2,000, with no hidden fees and no padded retainers. If $2,000 is more than your church can put toward it right now, still write us. We would rather hear from you than have a pastor stay quiet because the number felt too big. We will tell you honestly what we can work out.",
+  },
+  {
+    q: "Is Journey Digital the same as journey-digital.com in Auckland?",
+    a: "No. Journey Digital at journeydigital.ai is a church website studio in Wilson, North Carolina. We are not the Journey Digital consultancy at journey-digital.com (Auckland and London). Different company, different country, different work.",
+  },
+  {
+    q: "What does a Wilson church website include?",
+    a: "A Wilson church website is custom and mobile-first, built around your service times, sermons, ministries, and a visit page a stranger can use on a phone. We build that visit path first — when you meet, where you are, and whether Sunday will feel possible — then sermons, ministries, and a giving path. The site serves the congregation you already have.",
+  },
+  {
+    q: "Do you use templates?",
+    a: "No templates, no clip art. AI accelerates layout and production. A human still owns design judgment, theology-sensitive copy, and the launch — so you are not buying a cheap generic site.",
+  },
+  {
+    q: "Do you work outside Wilson?",
+    a: "Eastern North Carolina is the beachhead: Wilson and the congregations around it, along I-95 and out toward the coastal plain. We also build for churches beyond that. The studio is based in Wilson, serving eastern North Carolina and beyond.",
+  },
+  {
+    q: "How do we start?",
+    a: "Request a free consultation. Tell us about your church at sales@journeydigital.ai, or use the form above. We reach out within a day.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
 export default function WilsonChurchWebsitesPage() {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -75,6 +116,10 @@ export default function WilsonChurchWebsitesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <StudioPage
         eyebrow="Wilson, NC"
         title={
@@ -85,6 +130,33 @@ export default function WilsonChurchWebsitesPage() {
         }
         currentPath="/wilson-nc-church-websites"
         polished
+        afterContact={
+          <section
+            id="faq"
+            className="border-t border-line px-6 py-[72px] md:px-8 md:py-[110px]"
+          >
+            <div className="mx-auto max-w-[820px]">
+              <div className="mb-5 text-xs font-semibold tracking-[0.22em] text-accent uppercase">
+                Questions
+              </div>
+              <h2 className="mb-10 font-serif text-[clamp(28px,3.6vw,40px)] leading-[1.1] font-semibold tracking-[-0.02em] text-cream">
+                Church websites in Wilson, NC: common questions
+              </h2>
+              <dl className="divide-y divide-line border-y border-line">
+                {faqs.map((f) => (
+                  <div key={f.q} className="py-7">
+                    <dt className="mb-3 font-serif text-[20px] font-semibold tracking-[-0.01em] text-cream">
+                      {f.q}
+                    </dt>
+                    <dd className="text-[16.5px] leading-[1.75] text-silver">
+                      {f.a}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </section>
+        }
         lede={
           <>
             Looking for a custom church website in Wilson, NC? If your church

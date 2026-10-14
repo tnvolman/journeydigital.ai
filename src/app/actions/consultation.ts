@@ -5,6 +5,7 @@ import {
   persistConsultation,
   type ConsultationInput,
 } from "@/lib/consultations";
+import { forwardLeadToRailway } from "@/lib/forwardLead";
 
 export type ConsultationActionState = {
   ok: boolean;
@@ -36,22 +37,20 @@ export async function submitConsultation(
     return { ok: false, message: error };
   }
 
-  const { id } = await persistConsultation({
+  const clean: ConsultationInput = {
     name: input.name.trim(),
     church: input.church.trim(),
     email: input.email.trim(),
     phone: input.phone?.trim() || undefined,
-  });
+  };
 
-  await emailConsultation(
-    {
-      name: input.name.trim(),
-      church: input.church.trim(),
-      email: input.email.trim(),
-      phone: input.phone?.trim() || undefined,
-    },
-    id,
-  );
+  // Primary path: Railway handles DB + Twilio SMS + sales@ email.
+  const forwarded = await forwardLeadToRailway(clean);
+  if (!forwarded) {
+    // Fallback so a lead is never silently lost.
+    const { id } = await persistConsultation(clean);
+    await emailConsultation(clean, id);
+  }
 
   // Always warm for the visitor — email config status stays in server logs only.
   return {

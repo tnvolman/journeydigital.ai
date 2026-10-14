@@ -1,14 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import { EmailLink } from "@/components/EmailLink";
-import { CONTACT_EMAIL, studioPages } from "@/lib/site";
+import { CONTACT_EMAIL } from "@/lib/site";
 
-const links = [
-  { href: "/#services", label: "Services" },
-  { href: "/#work", label: "Work" },
-  { href: "/#pricing", label: "Pricing" },
-  { href: "/blog", label: "Journal" },
-  { href: "/contact", label: "Contact" },
+const columns = [
+  [
+    { href: "/#services", label: "Services" },
+    { href: "/#work", label: "Work" },
+    { href: "/#pricing", label: "Pricing" },
+    { href: "/blog", label: "Journal" },
+  ],
+  [
+    { href: "/about", label: "About" },
+    { href: "/wilson-nc-church-websites", label: "Wilson church websites" },
+    { href: "/church-website-not-a-template", label: "Why not a template" },
+    { href: "/contact", label: "Contact" },
+  ],
 ];
 
 export function Footer() {
@@ -42,32 +49,22 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-x-16 gap-y-8">
-            <div className="flex flex-col gap-2.5 text-sm text-fog">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="transition-colors hover:text-cream"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-            <div className="flex flex-col gap-2.5 text-sm text-fog">
-              {studioPages
-                .filter((link) => link.href !== "/contact")
-                .map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="transition-colors hover:text-cream"
-                  >
-                    {link.label}
-                  </Link>
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-16 gap-y-8">
+            {columns.map((col, i) => (
+              <ul key={i} className="flex flex-col gap-2.5 text-sm text-fog">
+                {col.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="transition-colors hover:text-cream"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
                 ))}
-            </div>
-          </div>
+              </ul>
+            ))}
+          </nav>
         </div>
 
         <div className="mt-10 flex flex-wrap justify-between gap-3 border-t border-line pt-6 text-[12.5px] tracking-[0.04em] text-muted">

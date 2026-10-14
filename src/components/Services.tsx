@@ -22,7 +22,7 @@ const cells = [
 
 export function Services() {
   return (
-    <section id="services" className="relative pt-[80px] pb-[32px] md:py-[110px]">
+    <section id="services" className="relative pt-[80px] pb-[40px] md:py-[110px]">
       <div className="mx-auto max-w-[1140px] px-6 md:px-8">
         <Reveal>
           <div className="mb-5 flex items-center gap-3 text-xs font-semibold tracking-[0.22em] text-accent uppercase">
@@ -51,14 +51,6 @@ export function Services() {
             ))}
           </div>
         </Reveal>
-        <p className="mt-6 text-[15px] text-fog">
-          <Link
-            href="/church-website-not-a-template"
-            className="underline decoration-line underline-offset-4 transition-colors hover:text-cream hover:decoration-fog"
-          >
-            Why not a template?
-          </Link>
-        </p>
       </div>
     </section>
   );

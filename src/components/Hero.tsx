@@ -50,10 +50,10 @@ export function Hero() {
             className="absolute h-[78%] w-[78%] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,.16),transparent_68%)] blur-[18px]"
           />
           <Image
-            src="/brand/journeydigital_logo_grey.svg"
+            src="/brand/jd-emblem.png"
             alt="Journey Digital — church website design studio"
-            width={380}
-            height={380}
+            width={710}
+            height={724}
             className="hero-rise relative w-[min(380px,80%)] drop-shadow-[0_24px_60px_rgba(0,0,0,.6)]"
             priority
           />

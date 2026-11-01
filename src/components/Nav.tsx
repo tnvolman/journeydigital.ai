@@ -89,14 +89,14 @@ export function Nav() {
           className="flex items-center gap-2.5 text-[13px] font-semibold tracking-[0.18em] text-cream uppercase"
         >
           <Image
-            src="/brand/jd-lockup-w2.svg"
-            alt="Journey Digital"
-            width={148}
-            height={46}
-            className="h-[46px] w-auto md:h-[54px]"
-            unoptimized
+            src="/brand/journeydigital_mark.png"
+            alt=""
+            width={30}
+            height={30}
+            className="h-[30px] w-auto"
             priority
           />
+          Journey Digital
         </Link>
 
         <div className="hidden items-center gap-9 text-[13.5px] tracking-[0.02em] text-fog md:flex">

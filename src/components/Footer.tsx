@@ -26,13 +26,13 @@ export function Footer() {
           <div>
             <div className="mb-4 flex items-center gap-2.5 text-[13px] font-semibold tracking-[0.18em] text-cream uppercase">
               <Image
-                src="/brand/journeydigital_mark.png"
-                alt=""
-                width={30}
-                height={30}
-                className="h-[30px] w-auto"
-              />
-              Journey Digital
+            src="/brand/jd-lockup-w2.svg"
+            alt="Journey Digital"
+            width={181}
+            height={56}
+            className="h-[56px] w-auto"
+            unoptimized
+          />
             </div>
             <p className="max-w-[38ch] text-[15px] text-fog italic">
               &ldquo;Except the LORD build the house, they labour in vain that

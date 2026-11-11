@@ -32,6 +32,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Default opsz: 9 (DM Sans) / 20 (Source Serif 4), matching next/font/google on main. */
+  font-optical-sizing: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

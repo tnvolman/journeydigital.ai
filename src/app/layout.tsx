@@ -4,19 +4,21 @@ import Script from "next/script";
 import { GoatCounter } from "@/components/GoatCounter";
 import "./globals.css";
 
-// Self-hosted so `next build` (Turbopack) does not fetch Google Fonts.
-// next/font/google flakes on extensionless kit URLs (vercel/next.js#99114).
-const sans = localFont({
-  src: "./fonts/dm-sans-latin-wght-normal.woff2",
+// Self-hosted latin variable cuts that next/font/google actually served on
+// main 72a4115, so metrics and line breaks match. Official opsz+wght TTFs
+// from google/fonts do not interpolate to those same advances. Identifiers
+// must not be CSS generic families (`sans` / `serif`).
+const dmSans = localFont({
+  src: "./fonts/dmsans/DMSans-latin-wght.woff2",
   variable: "--font-jd-sans",
-  weight: "400 700",
+  weight: "100 1000",
   display: "swap",
 });
 
-const serif = localFont({
-  src: "./fonts/source-serif-4-latin-wght-normal.woff2",
+const sourceSerif4 = localFont({
+  src: "./fonts/sourceserif4/SourceSerif4-latin-wght.woff2",
   variable: "--font-jd-serif",
-  weight: "500 700",
+  weight: "200 900",
   display: "swap",
 });
 
@@ -38,7 +40,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable} h-full`}>
+    <html lang="en" className={`${dmSans.variable} ${sourceSerif4.variable} h-full`}>
       <body className="min-h-full flex flex-col antialiased">
         {children}
         <GoatCounter />

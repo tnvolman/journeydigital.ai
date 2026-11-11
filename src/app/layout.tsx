@@ -1,19 +1,23 @@
 import type { Metadata } from "next";
-import { DM_Sans, Source_Serif_4 } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import { GoatCounter } from "@/components/GoatCounter";
 import "./globals.css";
 
-const sans = DM_Sans({
+// Self-hosted so `next build` (Turbopack) does not fetch Google Fonts.
+// next/font/google flakes on extensionless kit URLs (vercel/next.js#99114).
+const sans = localFont({
+  src: "./fonts/dm-sans-latin-wght-normal.woff2",
   variable: "--font-jd-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: "400 700",
+  display: "swap",
 });
 
-const serif = Source_Serif_4({
+const serif = localFont({
+  src: "./fonts/source-serif-4-latin-wght-normal.woff2",
   variable: "--font-jd-serif",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: "500 700",
+  display: "swap",
 });
 
 export const metadata: Metadata = {

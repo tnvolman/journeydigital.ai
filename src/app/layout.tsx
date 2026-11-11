@@ -1,19 +1,25 @@
 import type { Metadata } from "next";
-import { DM_Sans, Source_Serif_4 } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import { GoatCounter } from "@/components/GoatCounter";
 import "./globals.css";
 
-const sans = DM_Sans({
+// Self-hosted latin variable cuts that next/font/google actually served on
+// main 72a4115, so metrics and line breaks match. Official opsz+wght TTFs
+// from google/fonts do not interpolate to those same advances. Identifiers
+// must not be CSS generic families (`sans` / `serif`).
+const dmSans = localFont({
+  src: "./fonts/dmsans/DMSans-latin-wght.woff2",
   variable: "--font-jd-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: "100 1000",
+  display: "swap",
 });
 
-const serif = Source_Serif_4({
+const sourceSerif4 = localFont({
+  src: "./fonts/sourceserif4/SourceSerif4-latin-wght.woff2",
   variable: "--font-jd-serif",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: "200 900",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -34,7 +40,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable} h-full`}>
+    <html lang="en" className={`${dmSans.variable} ${sourceSerif4.variable} h-full`}>
       <body className="min-h-full flex flex-col antialiased">
         {children}
         <GoatCounter />
